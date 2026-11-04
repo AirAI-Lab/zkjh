@@ -20,12 +20,21 @@ if ($part.Offset -lt 2MB) { throw "ABORT safety check: partition offset <2MB, wr
 $confirm = Read-Host "Confirm writing THIS card? type yes to continue"
 if ($confirm -ine 'yes') { throw "cancelled by user" }
 
+function Read-Exact($fs, [byte[]]$buf, [int]$count) {
+  $off = 0
+  while ($off -lt $count) {
+    $n = $fs.Read($buf, $off, $count - $off)
+    if ($n -le 0) { break }
+    $off += $n
+  }
+  return $off
+}
 # ---- 2. backup first 4MB ----
 $bak = Join-Path $PSScriptRoot ("..\logs\sd_backup_disk{0}_{1}.bin" -f $disk.Number, (Get-Date -Format yyyyMMdd_HHmmss))
 New-Item -ItemType Directory -Force -Path (Split-Path $bak) | Out-Null
-$fs = [IO.File]::Open("\\.\PhysicalDrive" + $disk.Number, 'Open', 'Read', 'ReadWrite')
+$fs = [IO.File]::Open("\\.\PhysicalDrive" + $disk.Number, 'Open', 'ReadWrite', 'ReadWrite')
 $buf = New-Object byte[] (4MB)
-[void]$fs.Read($buf, 0, $buf.Length)
+[void](Read-Exact $fs $buf $buf.Length)
 [IO.File]::WriteAllBytes($bak, $buf)
 Write-Host "backup first 4MB -> $bak"
 
@@ -39,7 +48,7 @@ $fs.Flush($true)
 # ---- 4. readback verify ----
 $fs.Seek(17408, 'Begin') | Out-Null
 $rb = New-Object byte[] $ub.Length
-[void]$fs.Read($rb, 0, $rb.Length)
+[void](Read-Exact $fs $rb $rb.Length)
 $fs.Close()
 if (@(Compare-Object $ub $rb -SyncWindow 0).Count -eq 0) {
   Write-Host "VERIFY OK - TF boot card is READY." -ForegroundColor Green
