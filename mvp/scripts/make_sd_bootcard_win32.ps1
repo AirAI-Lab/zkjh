@@ -22,8 +22,11 @@ if ($part.Offset -lt 2MB) { throw "ABORT: partition offset <2MB" }
 $confirm = Read-Host "Confirm writing THIS card? type yes to continue"
 if ($confirm -ine 'yes') { throw "cancelled" }
 
-$GENERIC_READ=0x80000000; $GENERIC_WRITE=0x40000000; $SHARE_RW=3; $OPEN_EXISTING=3
-$sfh = [RawDisk]::CreateFile("\\.\PhysicalDrive"+$disk.Number, ($GENERIC_READ -bor $GENERIC_WRITE), $SHARE_RW, [IntPtr]::Zero, $OPEN_EXISTING, 0, [IntPtr]::Zero)
+[uint32]$GENERIC_READ  = 2147483648  # 0x80000000
+[uint32]$GENERIC_WRITE = 1073741824  # 0x40000000
+$access = [uint32]($GENERIC_READ -bor $GENERIC_WRITE)   # 0xC0000000
+[uint32]$SHARE_RW = 3; [uint32]$OPEN_EXISTING = 3
+$sfh = [RawDisk]::CreateFile("\\.\PhysicalDrive"+$disk.Number, $access, $SHARE_RW, [IntPtr]::Zero, $OPEN_EXISTING, 0, [IntPtr]::Zero)
 if ($sfh.IsInvalid) { throw ("CreateFile failed, Win32Error=" + [Runtime.InteropServices.Marshal]::GetLastWin32Error()) }
 $fs = New-Object IO.FileStream($sfh, [IO.FileAccess]::ReadWrite, 512, $false)
 
