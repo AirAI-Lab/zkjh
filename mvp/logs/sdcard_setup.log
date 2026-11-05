@@ -1,0 +1,49 @@
+[10:09:35] === START ===
+[10:09:37] Target: F: -> PhysicalDrive1 Mass Storage Device 7.5GB
+[10:09:37] Safety checks PASSED
+[10:09:37] Step 1: Repartitioning (clean + create @4MB + FAT32)...
+[10:09:41] diskpart: 
+Microsoft DiskPart 版本 10.0.26100.1150
+
+Copyright (C) Microsoft Corporation.
+在计算机上: ELI
+
+磁盘 1 现在是所选磁盘。
+
+DiskPart 成功地清除了磁盘。
+
+DiskPart 成功地创建了指定分区。
+
+
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+    0 百分比已完成
+  100 百分比已完成
+
+
+DiskPart 成功格式化该卷。
+
+DiskPart 成功地分配了驱动器号或装载点。
+
+[10:09:43] New partition offset: 4194304 bytes (4MB)
+[10:09:43] Step 2: Copying files...
+[10:09:44] Files on card: 
+Name                                Length
+----                                ------
+t23_sdcard_uboot_uart1.bin          240792
+ZRT_SOC_T23ZN_TP9950_DEBUG_FW.bin 13844480
+
+
+
+[10:09:44] Step 3: Writing uboot at 17KB offset...
+[10:09:45] Backup 4MB -> D:\github\zkjh\mvp\logs\sd_backup_disk1_20261105_100945.bin
+[10:09:45] Writing 240792 bytes (padded 241152) @ offset 17408...
+[10:09:46] VERIFY OK - TF BOOT CARD READY
+[10:09:46] === ALL DONE ===
+[10:09:46] Next: insert card into board, short J16, power on
