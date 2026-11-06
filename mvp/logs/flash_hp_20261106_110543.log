@@ -1,0 +1,8 @@
+
+>>> mw.b 0x80600000 0xff 0x40000
+������000
+
+
+>>> fatload mmc 0 0x80600000 u-boot-hardlzma-sfcnor-hp.bin
+z���0 0�?b��_XK.���)
+[STEP FAIL]

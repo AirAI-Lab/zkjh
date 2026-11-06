@@ -1,0 +1,13 @@
+[recv] 
+byte at 0x80858000 (0x38) != byte at 0x81600000 (0x0)
+Total of 0 byte(s) were the same
+isvp_t23# 
+byte at 0x80858000 (0x38) != byte at 0x81600000 (0x0)
+Total of 0 byte(s) were the same
+isvp_t23# 
+
+[send] md.b 0x80858000 0x20
+md.b 0x80858000 0x20
+80858000: 38 8b 2a f8 82 00 83 24 b6 83 3f 72 3c 8c 72 f1    8.*....$..?r<.r.
+80858010: 50 62 72 91 4e 7f e4 49 38 89 eb ec 2d f3 4d 14    Pbr.N..I8...-.M.
+isvp_t23# 

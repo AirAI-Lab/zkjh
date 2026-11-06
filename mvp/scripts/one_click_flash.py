@@ -8,7 +8,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 PORT = 'COM4'
 BAUD = 115200
-FW = 'zrt_soc_t23zn_tp9950_debug_fw.bin'
+FW = 'zrt_soc_t23zn_gc2053_undirect_nopquiet_fw.bin'
 FLASH_CMD = ("setenv bootcmd ''; "
              "mw.b 0x80600000 0xff 0x1000000; "
              "fatload mmc 0 0x80600000 " + FW + "; "

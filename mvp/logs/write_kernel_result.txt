@@ -1,0 +1,4 @@
+﻿Disk1: Mass Storage Device
+kernel 2500120 bytes -> 3MB
+backup done
+ERROR: 使用“0”个参数调用“Flush”时发生异常:“对路径的访问被拒绝。”

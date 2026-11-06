@@ -1,0 +1,6 @@
+mmc read 0x80600000 0x1800 0x3000
+Unknown command 'mmc' - try 'help'
+isvp_t23# bootm 0x80600000
+Wrong Image Format for bootm command
+ERROR: can't get kernel image!
+isvp_t23# 

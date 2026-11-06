@@ -1,0 +1,34 @@
+[recv] 
+isvp_t23# 
+isvp_t23# 
+
+[send] sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# 
+
+[send] sf erase 0x0 0x40000
+sf erase 0x0 0x40000
+SF: 262144 bytes @ 0x0 Erased: OK
+--->erase spend 906 ms
+isvp_t23# 
+
+[send] sf write 0x80600000 0x0 0x40000
+sf write 0x80600000 0x0 0x40000
+SF: 262144 bytes @ 0x0 Written: OK
+--->write spend 502 ms
+isvp_t23# 
+
+[send] sf read 0x81600000 0x0 0x3ec10
+sf read 0x81600000 0x0 0x3ec10
+SF: 257040 bytes @ 0x0 Read: OK
+--->read spend 85 ms
+isvp_t23# 
+
+[send] cmp.b 0x80600000 0x81600000 0x3ec10
+cmp.b 0x80600000 0x81600000 0x3ec10
+Total of 257040 byte(s) were the same
+isvp_t23# 

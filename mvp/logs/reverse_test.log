@@ -1,0 +1,16 @@
+>>> sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# 
+>>> sf erase 0xd70000 0xd000
+sf erase 0xd70000 0xd000
+
+>>> sf write 0x80858000 0xd70000 0xa600
+
+>>> sf read 0x81600000 0xd70000 0xa600
+
+>>> cmp.b 0x80858000 0x81600000 0xa600
+

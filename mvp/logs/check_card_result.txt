@@ -1,0 +1,4 @@
+﻿check 11:22:41
+raw17KB(expect 4c 50 53 4d LPSM) @offset 17408: 4c 50 53 4d 00 00 00 00 00 00 00 00 00 00 00 00
+raw3MB(expect 27 05 19 56 uImage) @offset 3145728: 27 05 19 56 34 72 af ef 00 00 00 00 00 26 25 d8
+CHECK DONE

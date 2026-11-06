@@ -1,0 +1,29 @@
+[recv] 
+isvp_t23# 
+isvp_t23# 
+
+[send] 
+
+isvp_t23# 
+
+[send] sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# 
+
+[send] sf read 0x81600000 0x98000 0x100
+sf read 0x81600000 0x98000 0x100
+SF: 256 bytes @ 0x98000 Read: OK
+--->read spend 3 ms
+isvp_t23# 
+
+[send] md.b 0x81600000 0x40
+md.b 0x81600000 0x40
+81600000: 27 05 19 56 5a 3c 79 94 00 00 00 00 00 26 23 6c    '..VZ<y......&#l
+81600010: 80 01 00 00 80 38 df f0 33 36 a4 8d 05 05 02 05    .....8..36......
+81600020: 4c 69 6e 75 78 2d 33 2e 31 30 2e 31 34 2d 41 72    Linux-3.10.14-Ar
+81600030: 63 68 6f 6e 00 00 00 00 00 00 00 00 00 00 00 00    chon............
+isvp_t23# 

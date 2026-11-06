@@ -1,0 +1,2 @@
+<3>WSL (275551 - Relay) ERROR: CreateProcessCommon:810: chdir(/mnt/c/Users/wennu/Documents/ChatGPT/zkjh) failed 5
+bash: /mnt/d/github/zkjh/mvp/scripts/rebuild_v2.sh: Input/output error
