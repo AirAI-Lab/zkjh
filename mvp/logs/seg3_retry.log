@@ -1,0 +1,32 @@
+>>> sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# 
+>>> md.b 0x80858000 0x10
+md.b 0x80858000 0x10
+80858000: 08 0a 00 30 00 00 80 04 22 02 00 50 30 80 10 b0    ...0...."..P0...
+isvp_t23# 
+>>> fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+reading uImage-dbg.jzlzma
+2500956 bytes read in 129 ms (18.5 MiB/s)
+isvp_t23# 
+>>> sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# 
+>>> sf erase 0xd70000 0xd000
+sf erase 0xd70000 0xd000
+
+>>> sf write 0x80858000 0xd70000 0xa95c
+
+>>> sf read 0x81600000 0xd70000 0xa95c
+
+>>> cmp.b 0x80858000 0x81600000 0xa95c
+

@@ -1,0 +1,25 @@
+
+isvp_t23# 
+isvp_t23# fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+reading uImage-dbg.jzlzma
+2500956 bytes read in 129 ms (18.5 MiB/s)
+isvp_t23# [OK] fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 5 ms
+isvp_t23# [OK] sf probe
+sf erase 0xb18000 0x80000
+SF: 524288 bytes @ 0xb18000 Erased: OK
+--->erase spend 1899 ms
+isvp_t23# [OK] sf erase 0xb18000 0x80000
+sf write 0x80600000 0xb18000 0x80000
+SF: 524288 bytes @ 0xb18000 Written: OK
+--->write spend 936 ms
+isvp_t23# [OK] sf write 0x80600000 0xb18000 0x80000
+version
+[DEAD] version
+��b��R[DEAD] sf erase 0xb98000 0x80000
+���0�����[DEAD] sf write 0x80680000 0xb98000 0x80000
+[DEAD] version

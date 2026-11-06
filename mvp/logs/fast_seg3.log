@@ -1,0 +1,13 @@
+fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+reading uImage-dbg.jzlzma
+2500956 bytes read in 130 ms (18.3 MiB/s)
+isvp_t23# sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# sf erase 0xd70000 0xd000
+[DEAD] sf erase 0xd70000 0xd000
+
+
+SEG3=BAD
