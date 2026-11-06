@@ -1,0 +1,107 @@
+
+
+U-Boot SPL 2013.07 (Nov 06 2026 - 11:13:53)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+DDR_PAR of eFuse: 00000000 00000000
+sdram init finished
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Nov 06 2026 - 11:13:53)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 435k for U-Boot at: 83f90000
+Reserving 32772k for malloc() at: 81f8f000
+Reserving 32 Bytes for Board Info at: 81f8efe0
+Reserving 124 Bytes for Global Data at: 81f8ef64
+Reserving 128k for boot params() at: 81f6ef64
+Stack Pointer at: 81f6ef48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+the manufacturer c2
+SF: Detected MX25L128**E
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1 >>> setenv verify no
+setenv verify no
+isvp_t23# 
+>>> fatload mmc 0 0x80600000 uImage-dbg7-lzma.bin
+fatload mmc 0 0x80600000 uImage-dbg7-lzma.bin
+reading uImage-dbg7-lzma.bin
+1674826 bytes read in 89 ms (17.9 MiB/s)
+isvp_t23# 
+>>> bootm 0x80600000
+bootm 0x80600000
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1674762 Bytes = 1.6 MiB
+   Load Address: 80010000
+   Entry Point:  8038f770
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #20 PREEMPT Fri Nov 6 17:56:22 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU0 RESET ERROR PC:DBA5BA8D
+DBG:A probe
+DBG:B prom_init
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.g
+.bA1234
+cB1234
+SKIP-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+0.g
+1g
+2g
+3g
+4g
+5
