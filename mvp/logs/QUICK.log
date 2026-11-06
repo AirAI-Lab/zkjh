@@ -1,0 +1,3 @@
+fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
+** Unrecognized filesystem type **
+isvp_t23# 

@@ -1,0 +1,15 @@
+>>> 
+
+isvp_t23# 
+>>> mmc rescan
+mmc rescan
+isvp_t23# 
+>>> fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
+fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
+** Unrecognized filesystem type **
+isvp_t23# 
+>>> fatload mmc 1 0x80600000 uImage-fix3-lzma.bin
+fatload mmc 1 0x80600000 uImage-fix3-lzma.bin
+MMC Device 1 not found
+** Bad device mmc 1 **
+isvp_t23# 
