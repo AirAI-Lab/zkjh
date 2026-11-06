@@ -1,0 +1,32 @@
+fatload mmc 0 0x80600000 u-boot-hardlzma-sfcnor-1188.bin
+reading u-boot-hardlzma-sfcnor-1188.bin
+257040 bytes read in 19 ms (12.9 MiB/s)
+isvp_t23# [OK] fatload mmc 0 0x80600000 u-boot-hardlzma-sfcnor-1188.bin
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 5 ms
+isvp_t23# [OK] sf probe
+sf erase 0x0 0x40000
+SF: 262144 bytes @ 0x0 Erased: OK
+--->erase spend 1106 ms
+isvp_t23# [OK] sf erase 0x0 0x40000
+sf write 0x80600000 0x0 0x3ec10
+SF: 257040 bytes @ 0x0 Written: OK
+--->write spend 500 ms
+isvp_t23# [OK] sf write 0x80600000 0x0 0x3ec10
+sf read 0x81600000 0x0 0x3ec10
+SF: 257040 bytes @ 0x0 Read: OK
+--->read spend 85 ms
+isvp_t23# [OK] sf read 0x81600000 0x0 0x3ec10
+cmp.b 0x80600000 0x81600000 0x3ec10
+Total of 257040 byte(s) were the same
+isvp_t23# [OK] cmp.b 0x80600000 0x81600000 0x3ec10
+sf read 0x81600000 0x40000 0x10
+SF: 16 bytes @ 0x40000 Read: OK
+--->read spend 2 ms
+isvp_t23# [OK] sf read 0x81600000 0x40000 0x10
+md.b 0x81600000 0x10
+81600000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff    ................
+isvp_t23# 

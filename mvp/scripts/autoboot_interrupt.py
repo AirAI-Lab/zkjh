@@ -3,7 +3,7 @@
 """自动中断 autoboot 并执行命令序列"""
 import sys, time, serial, datetime, os
 
-PORT = os.environ.get("PORT", "COM4")
+PORT = os.environ.get("PORT", "COM3")
 CMDS = [c for c in sys.argv[1:]]
 LOGDIR = r"D:\github\zkjh\mvp\logs"
 os.makedirs(LOGDIR, exist_ok=True)
@@ -59,3 +59,4 @@ with open(LOG, "a", encoding="utf-8", errors="replace") as fp:
 
 ser.close()
 print("\n[done] " + LOG)
+

@@ -1,0 +1,114 @@
+
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500892 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f630
+Unimplemented compression type 5
+isvp_t23# 
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500892 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f630
+Unimplemented compression type 5
+isvp_t23# >>> setenv verify no
+setenv verify no
+isvp_t23# 
+>>> saveenv
+saveenv
+Writing to MMC(0)... done
+isvp_t23# 
+>>> sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 5 ms
+isvp_t23# 
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1 
+>>> sf read 0x80600000 0xb18000 0x2629bc
+ 0 
+isvp_t23# f read 0x80600000 0xb18000 0x2629bc
+Unknown command 'f' - try 'help'
+isvp_t23# 
+>>> bootm 0x80600000
+���
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 5 ms
+SF: 2097152 bytes @ 0xb18000 Read: OK
+--->read spend 674 ms
+SF: 360448 bytes @ 0xd18000 Read: OK
+--->read spend 119 ms
+SF: 43356 bytes @ 0xd70000 Read: OK
+--->read spend 17 ms
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500892 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f630
+Unimplemented compression type 5
+isvp_t23# 

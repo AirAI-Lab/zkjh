@@ -1,0 +1,38 @@
+
+isvp_t23# 
+isvp_t23# fatload mmc 0 0x80600000 uImage-dbg.jzlzma
+reading uImage-dbg.jzlzma
+2500956 bytes read in 129 ms (18.5 MiB/s)
+isvp_t23# sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 4 ms
+isvp_t23# sf read 0x81600000 0xc98000 0x80000
+SF: 524288 bytes @ 0xc98000 Read: OK
+--->read spend 171 ms
+isvp_t23# cmp.b 0x80780000 0x81600000 0x80000
+byte at 0x807f8000 (0x1b) != byte at 0x81678000 (0xff)
+Total of 491520 byte(s) were the same
+isvp_t23# sf erase 0xc98000 0x80000
+SF: 524288 bytes @ 0xc98000 Erased: OK
+--->erase spend 1914 ms
+isvp_t23# sf write 0x80780000 0xc98000 0x80000
+SF: 524288 bytes @ 0xc98000 Written: OK
+--->write spend 986 ms
+isvp_t23# sf read 0x81600000 0xc98000reset
+--->read spend 0 ms
+sf - SPI flash sub-system
+
+Usage:
+sf probe [[bus:]cs] [hz] [mode]	- init flash device on given SPI bus
+				  and chip select
+sf read addr offset len 	- read `len' bytes starting at
+				  `offset' to memory at `addr'
+sf write addr offset len	- write `len' bytes from memory
+				  at `addr' to flash at `offset'
+sf erase offset [+]len		- erase `len' bytes from `offset'
+				  `+len' round up `len' to block size
+sf update addr offset len	- erase and write `len' bytes from memory
+				  at `addr' to flash at `offset'
+isvp_t23# 

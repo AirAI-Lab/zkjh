@@ -1,0 +1,26 @@
+>>> 
+
+isvp_t23# 
+>>> sf probe
+sf probe
+the manufacturer c2
+SF: Detected MX25L128**E
+
+--->probe spend 5 ms
+isvp_t23# 
+>>> sf read 0x80600000 0xb18000 0x2629bc
+sf read 0x80600000 0xb18000 0x2629bc
+SF: 2501052 bytes @ 0xb18000 Read: OK
+--->read spend 803 ms
+isvp_t23# 
+>>> bootm 0x80600000
+bootm 0x80600000
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500892 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f630
+   Verifying Checksum ... Bad Data CRC
+ERROR: can't get kernel image!
+isvp_t23# 
