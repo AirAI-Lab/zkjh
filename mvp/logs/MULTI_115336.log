@@ -1,0 +1,524 @@
+
+isvp_t23# 
+isvp_t23# setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'; fatload mmc 0 0x80600000 uImage-combo-lzma.bin; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000
+reading uImage-combo-lzma.bin
+1481449 bytes read in 79 ms (17.9 MiB/s)
+reading uInitrd
+4300864 bytes read in 219 ms (18.7 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481385 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315800
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+p
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500056 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f370
+   Verifying Checksum ... OK
+Unimplemented compression type 5
+isvp_t23# 
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+isvp_t23# 
+isvp_t23# setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'; fatload mmc 0 0x80600000 uImage-combo-lzma.bin; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000
+reading uImage-combo-lzma.bin
+1481449 bytes read in 79 ms (17.9 MiB/s)
+reading uInitrd
+4300864 bytes read in 219 ms (18.7 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481385 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315800
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+p
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500056 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f370
+   Verifying Checksum ... OK
+Unimplemented compression type 5
+isvp_t23# 
+isvp_t23# 
+isvp_t23# setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'; fatload mmc 0 0x80600000 uImage-combo-lzma.bin; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000
+reading uImage-combo-lzma.bin
+1481449 bytes read in 79 ms (17.9 MiB/s)
+reading uInitrd
+4300864 bytes read in 220 ms (18.6 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481385 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315800
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+pr+p
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500056 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f370
+   Verifying Checksum ... OK
+Unimplemented compression type 5
+isvp_t23# 
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
+   Data Size:    2500056 Bytes = 2.4 MiB
+   Load Address: 80010000
+   Entry Point:  8038f370
+   Verifying Checksum ... OK
+Unimplemented compression type 5
+isvp_t23# 

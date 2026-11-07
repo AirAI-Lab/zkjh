@@ -1,0 +1,8 @@
+>>> setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'
+setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'
+isvp_t23# 
+>>> fatload mmc 0 0x80600000 uImage-defense-lzma.bin
+fatload mmc 0 0x80600000 uImage-defense-lzma.bin
+reading uImage-defense-lzma.bin
+1481487 bytes read in 80 ms (17.7 MiB/s)
+isvp_t23# 

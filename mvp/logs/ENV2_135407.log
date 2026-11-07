@@ -1,0 +1,769 @@
+>>> setenv bootargs console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+setenv bootargs console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+isvp_t23# 
+>>> setenv bootcmd mmc read 0x80600000 0x1800 0x3000\; fatload mmc 0 0x81000000 uInitrd\; bootm 0x80600000 0x81000000
+setenv bootcmd mmc read 0x80600000 0x1800 0x3000\; fatload mmc 0 0x81000000 uInitrd\; bootm 0x80600000 0x81000000
+isvp_t23# 
+>>> saveenv
+saveenv
+Writing to MMC(0)... done
+isvp_t23# 
+>>> printenv bootargs
+printenv bootargs
+bootargs=console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+isvp_t23# 
+>>> printenv bootcmd
+printenv bootcmd
+bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000
+isvp_t23# 
+>>> boot
+boot
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+reading uInitrd
+4300864 bytes read in 219 ms (18.7 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481589 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315860
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M2a:pre-addpart
+M2b:pre-memmap
+M2c:post-memmap
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #29 PREEMPT Sat Nov 7 13:42:10 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:DBA5BA8C
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00409000 @ 00010000 (usable)
+[    0.000000]  memory: 00037000 @ 00419000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 36576k/41984k available (3121k kernel code, 5408k reserved, 1009k data, 220k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090018] pid_max: default: 32768 minimum: 301
+[    0.090239] Mount-cache hash table entries: 512
+[    0.090743] Initializing cgroup subsys debug
+[    0.090762] Initializing cgroup subsys freezer
+[    0.092895] regulator-dummy: no parameters
+[    0.093068] NET: Registered protocol family 16
+[    0.093364] register process exit failed.
+[    0.103130] bio: create slab <bio-0> at 0
+[    0.105176] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.105502] jz TCU driver register completed
+[    0.105721] usbcore: registered new interface driver usbfs
+[    0.105771] usbcore: registered new interface driver hub
+[    0.105927] usbcore: registered new device driver usb
+[    0.106143] i2c i2c-0: i2c0 skip clk init.
+[    0.106207]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106278] i2c i2c-1: i2c1 register ok.
+[    0.106316] media: Linux media interface: v0.10
+[    0.106358] Linux video capture interface: v2.00
+[    0.107938] Switching to clocksource jz_clocksource
+[    0.108548] NET: Registered protocol family 2
+[    0.109016] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.109043] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.109059] TCP: Hash tables configured (established 512 bind 512)
+[    0.109112] TCP: reno registered
+[    0.109128] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109149] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109392] NET: Registered protocol family 1
+[    0.109817] freq_udelay_jiffys[0].max_num = 10
+[    0.109828] cpufreq 	udelay 	loops_per_jiffy	
+[    0.109834] 12000	 59867	 59867	
+[    0.109840] 24000	 119735	 119735	
+[    0.109846] 60000	 299338	 299338	
+[    0.109852] 120000	 598677	 598677	
+[    0.109858] 200000	 997796	 997796	
+[    0.109864] 300000	 1496694	 1496694	
+[    0.109870] 600000	 2993389	 2993389	
+[    0.109876] 792000	 3951274	 3951274	
+[    0.109882] 1008000	 5028895	 5028895	
+[    0.109889] 1200000	 5986779	 5986779	
+[    0.110073] cfg80211: Calling CRDA to update world regulatory domain
+[    0.114355] msgmni has been set to 71
+[    0.116214] io scheduler noop registered
+[    0.116252] io scheduler cfq registered (default)
+[    0.116456] wait stable.[296][cgu_vpu]
+[    0.129320] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.557483] console [ttyS1] enabled
+[    0.562290] brd: module loaded
+[    0.565992] loop: module loaded
+[    0.569878] zram: Created 2 device(s) ...
+[    0.574117] logger: created 256K log 'log_main'
+[    0.579292] tun: Universal TUN/TAP device driver, 1.6
+[    0.584526] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.591085] usbcore: registered new interface driver asix
+[    0.596711] usbcore: registered new interface driver ax88179_178a
+[    0.603096] usbcore: registered new interface driver cdc_ether
+[    0.609201] usbcore: registered new interface driver net1080
+[    0.615092] usbcore: registered new interface driver cdc_subset
+[    0.621288] usbcore: registered new interface driver zaurus
+[    0.627145] usbcore: registered new interface driver cdc_ncm
+[    0.633167] DWC IN OTG MODE
+[    0.636708] dwc2 dwc2: Keep PHY ON
+[    0.640275] dwc2 dwc2: Using Buffer DMA mode
+[    0.644700] dwc2 dwc2: Core Release: 3.00a
+[    0.648986] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.655508] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.662839] hub 1-0:1.0: USB hub found
+[    0.666738] hub 1-0:1.0: 1 port detected
+[    0.671004] dwc2 dwc2: DWC2 Host Initialized
+[    0.676420] pipe_request_dma: paddr = 0x2180000
+[    0.681237] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a2144000)
+[    0.690361] pipe_request_dma: paddr = 0x21c0000
+[    0.695095] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a2145000)
+[    0.704251] pipe_request_dma: paddr = 0x2200000
+[    0.709040] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a2146000)
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr+pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.748981] dwc2 dwc2: ID PIN CHANGED!
+[    0.757986] @@@@@ inner codec power up@@@@@@
+[    0.762524] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.768653] TCP: cubic registered
+[    0.772091] NET: Registered protocol family 17
+[    0.777026] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.783044] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.792068] List of all partitions:
+[    0.795688] No filesystem could mount root, tried: 
+[    0.800787] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
+[    0.809344] Rebooting in 5 seconds..Restarting after 4 ms
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+reading uInitrd
+4300864 bytes read in 219 ms (18.7 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481589 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315860
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M2a:pre-addpart
+M2b:pre-memmap
+M2c:post-memmap
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #29 PREEMPT Sat Nov 7 13:42:10 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:80178BC0
+[    0.000000] [<80178bc0>] __delay+0x0/0x10
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00409000 @ 00010000 (usable)
+[    0.000000]  memory: 00037000 @ 00419000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 36576k/41984k available (3121k kernel code, 5408k reserved, 1009k data, 220k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090018] pid_max: default: 32768 minimum: 301
+[    0.090239] Mount-cache hash table entries: 512
+[    0.090742] Initializing cgroup subsys debug
+[    0.090760] Initializing cgroup subsys freezer
+[    0.092892] regulator-dummy: no parameters
+[    0.093065] NET: Registered protocol family 16
+[    0.093362] register process exit failed.
+[    0.103126] bio: create slab <bio-0> at 0
+[    0.105170] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.105496] jz TCU driver register completed
+[    0.105714] usbcore: registered new interface driver usbfs
+[    0.105765] usbcore: registered new interface driver hub
+[    0.105921] usbcore: registered new device driver usb
+[    0.106138] i2c i2c-0: i2c0 skip clk init.
+[    0.106202]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106274] i2c i2c-1: i2c1 register ok.
+[    0.106312] media: Linux media interface: v0.10
+[    0.106353] Linux video capture interface: v2.00
+[    0.107935] Switching to clocksource jz_clocksource
+[    0.108544] NET: Registered protocol family 2
+[    0.109012] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.109038] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.109054] TCP: Hash tables configured (established 512 bind 512)
+[    0.109107] TCP: reno registered
+[    0.109122] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109144] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109386] NET: Registered protocol family 1
+[    0.109812] freq_udelay_jiffys[0].max_num = 10
+[    0.109822] cpufreq 	udelay 	loops_per_jiffy	
+[    0.109828] 12000	 59867	 59867	
+[    0.109834] 24000	 119735	 119735	
+[    0.109840] 60000	 299338	 299338	
+[    0.109846] 120000	 598677	 598677	
+[    0.109852] 200000	 997796	 997796	
+[    0.109858] 300000	 1496694	 1496694	
+[    0.109864] 600000	 2993389	 2993389	
+[    0.109871] 792000	 3951274	 3951274	
+[    0.109877] 1008000	 5028895	 5028895	
+[    0.109883] 1200000	 5986779	 5986779	
+[    0.110072] cfg80211: Calling CRDA to update world regulatory domain
+[    0.114350] msgmni has been set to 71
+[    0.116208] io scheduler noop registered
+[    0.116246] io scheduler cfq registered (default)
+[    0.116449] wait stable.[296][cgu_vpu]
+[    0.129316] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.561644] console [ttyS1] enabled
+[    0.566434] brd: module loaded
+[    0.570186] loop: module loaded
+[    0.574019] zram: Created 2 device(s) ...
+[    0.578307] logger: created 256K log 'log_main'
+[    0.583423] tun: Universal TUN/TAP device driver, 1.6
+[    0.588701] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.595216] usbcore: registered new interface driver asix
+[    0.600888] usbcore: registered new interface driver ax88179_178a
+[    0.607230] usbcore: registered new interface driver cdc_ether
+[    0.613336] usbcore: registered new interface driver net1080
+[    0.619264] usbcore: registered new interface driver cdc_subset
+[    0.625424] usbcore: registered new interface driver zaurus
+[    0.631310] usbcore: registered new interface driver cdc_ncm
+[    0.637280] DWC IN OTG MODE
+[    0.640872] dwc2 dwc2: Keep PHY ON
+[    0.644397] dwc2 dwc2: Using Buffer DMA mode
+[    0.648859] dwc2 dwc2: Core Release: 3.00a
+[    0.653133] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.659670] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.666974] hub 1-0:1.0: USB hub found
+[    0.670920] hub 1-0:1.0: 1 port detected
+[    0.675136] dwc2 dwc2: DWC2 Host Initialized
+[    0.680586] pipe_request_dma: paddr = 0x2180000
+[    0.685325] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a2144000)
+[    0.694510] pipe_request_dma: paddr = 0x21c0000
+[    0.699299] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a2145000)
+[    0.708425] pipe_request_dma: paddr = 0x2200000
+[    0.713158] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a2146000)
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr+pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.753130] dwc2 dwc2: ID PIN CHANGED!
+[    0.757983] @@@@@ inner codec power up@@@@@@
+[    0.762520] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.768649] TCP: cubic registered
+[    0.772088] NET: Registered protocol family 17
+[    0.777025] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.783044] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.792071] List of all partitions:
+[    0.795691] No filesystem could mount root, tried: 
+[    0.800790] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
+[    0.809347] Rebooting in 5 seconds..Restarting after 4 ms
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+reading uInitrd
+4300864 bytes read in 219 ms (18.7 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1481589 Bytes = 1.4 MiB
+   Load Address: 80010000
+   Entry Point:  80315860
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 81000000 ...
+   Image Name:   uInitrd-tp9950
+   Image Type:   MIPS Linux RAMDisk Image (uncompressed)
+   Data Size:    4300800 Bytes = 4.1 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M2a:pre-addpart
+M2b:pre-memmap
+M2c:post-memmap
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #29 PREEMPT Sat Nov 7 13:42:10 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:80178BC0
+[    0.000000] [<80178bc0>] __delay+0x0/0x10
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00409000 @ 00010000 (usable)
+[    0.000000]  memory: 00037000 @ 00419000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 36576k/41984k available (3121k kernel code, 5408k reserved, 1009k data, 220k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090018] pid_max: default: 32768 minimum: 301
+[    0.090239] Mount-cache hash table entries: 512
+[    0.090740] Initializing cgroup subsys debug
+[    0.090759] Initializing cgroup subsys freezer
+[    0.092890] regulator-dummy: no parameters
+[    0.093063] NET: Registered protocol family 16
+[    0.093359] register process exit failed.
+[    0.103122] bio: create slab <bio-0> at 0
+[    0.105168] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.105495] jz TCU driver register completed
+[    0.105714] usbcore: registered new interface driver usbfs
+[    0.105763] usbcore: registered new interface driver hub
+[    0.105919] usbcore: registered new device driver usb
+[    0.106136] i2c i2c-0: i2c0 skip clk init.
+[    0.106201]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106272] i2c i2c-1: i2c1 register ok.
+[    0.106310] media: Linux media interface: v0.10
+[    0.106350] Linux video capture interface: v2.00
+[    0.107932] Switching to clocksource jz_clocksource
+[    0.108543] NET: Registered protocol family 2
+[    0.109009] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.109035] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.109052] TCP: Hash tables configured (established 512 bind 512)
+[    0.109104] TCP: reno registered
+[    0.109120] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109140] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109383] NET: Registered protocol family 1
+[    0.109809] freq_udelay_jiffys[0].max_num = 10
+[    0.109820] cpufreq 	udelay 	loops_per_jiffy	
+[    0.109826] 12000	 59867	 59867	
+[    0.109832] 24000	 119735	 119735	
+[    0.109838] 60000	 299338	 299338	
+[    0.109844] 120000	 598677	 598677	
+[    0.109850] 200000	 997796	 997796	
+[    0.109856] 300000	 1496694	 1496694	
+[    0.109862] 600000	 2993389	 2993389	
+[    0.109868] 792000	 3951274	 3951274	
+[    0.109874] 1008000	 5028895	 5028895	
+[    0.109880] 1200000	 5986779	 5986779	
+[    0.110073] cfg80211: Calling CRDA to update world regulatory domain
+[    0.114352] msgmni has been set to 71
+[    0.116208] io scheduler noop registered
+[    0.116247] io scheduler cfq registered (default)
+[    0.116450] wait stable.[296][cgu_vpu]
+[    0.129315] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.561648] console [ttyS1] enabled
+[    0.566438] brd: module loaded
+[    0.570190] loop: module loaded
+[    0.574022] zram: Created 2 device(s) ...
+[    0.578310] logger: created 256K log 'log_main'
+[    0.583424] tun: Universal TUN/TAP device driver, 1.6
+[    0.588702] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.595218] usbcore: registered new interface driver asix
+[    0.600888] usbcore: registered new interface driver ax88179_178a
+[    0.607230] usbcore: registered new interface driver cdc_ether
+[    0.613338] usbcore: registered new interface driver net1080
+[    0.619265] usbcore: registered new interface driver cdc_subset
+[    0.625427] usbcore: registered new interface driver zaurus
+[    0.631314] usbcore: registered new interface driver cdc_ncm
+[    0.637284] DWC IN OTG MODE
+[    0.640876] dwc2 dwc2: Keep PHY ON
+[    0.644403] dwc2 dwc2: Using Buffer DMA mode
+[    0.648863] dwc2 dwc2: Core Release: 3.00a
+[    0.653137] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.659673] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.666975] hub 1-0:1.0: USB hub found
+[    0.670922] hub 1-0:1.0: 1 port detected
+[    0.675139] dwc2 dwc2: DWC2 Host Initialized
+[    0.680585] pipe_request_dma: paddr = 0x2180000
+[    0.685323] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a2144000)
+[    0.694508] pipe_request_dma: paddr = 0x21c0000
+[    0.699296] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a2145000)
+[    0.708423] pipe_request_dma: paddr = 0x2200000
+[    0.713156] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a2146000)
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr+pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.753134] dwc2 dwc2: ID PIN CHANGED!
+[    0.757981] @@@@@ inner codec power up@@@@@@
+[    0.762519] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.768647] TCP: cubic registered
+[    0.772085] NET: Registered protocol family 17
+[    0.777023] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.783042] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.792067] List of all partitions:
+[    0.795686] No filesystem could mount root, tried: 
+[    0.800785] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(1,0)
+[    0.809341] Rebooting in 5 seconds..

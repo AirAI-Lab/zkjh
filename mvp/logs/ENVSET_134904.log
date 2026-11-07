@@ -1,0 +1,219 @@
+hon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #29 PREEMPT Sat Nov 7 13:42:10 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:80178BC8
+[    0.000000] [<80178bc8>] __delay+0x8/0x10
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00409000 @ 00010000 (usable)
+[    0.000000]  memory: 00037000 @ 00419000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 init=/linuxrc root=/dev/mmcblk0p2 rw rootdelay=1
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 36576k/41984k available (3121k kernel code, 5408k reserved, 1009k data, 220k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090018] pid_max: default: 32768 minimum: 301
+[    0.090240] Mount-cache hash table entries: 512
+[    0.090742] Initializing cgroup subsys debug
+[    0.090762] Initializing cgroup subsys freezer
+[    0.092907] regulator-dummy: no parameters
+[    0.093080] NET: Registered protocol family 16
+[    0.093392] register process exit failed.
+[    0.103164] bio: create slab <bio-0> at 0
+[    0.105210] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.105536] jz TCU driver register completed
+[    0.105756] usbcore: registered new interface driver usbfs
+[    0.105806] usbcore: registered new interface driver hub
+[    0.105963] usbcore: registered new device driver usb
+[    0.106180] i2c i2c-0: i2c0 skip clk init.
+[    0.106244]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106314] i2c i2c-1: i2c1 register ok.
+[    0.106352] media: Linux media interface: v0.10
+[    0.106394] Linux video capture interface: v2.00
+[    0.107982] Switching to clocksource jz_clocksource
+[    0.108593] NET: Registered protocol family 2
+[    0.109061] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.109087] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.109103] TCP: Hash tables configured (established 512 bind 512)
+[    0.109156] TCP: reno registered
+[    0.109172] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109193] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.109435] NET: Registered protocol family 1
+[    0.109869] freq_udelay_jiffys[0].max_num = 10
+[    0.109879] cpufreq 	udelay 	loops_per_jiffy	
+[    0.109886] 12000	 59867	 59867	
+[    0.109892] 24000	 119735	 119735	
+[    0.109898] 60000	 299338	 299338	
+[    0.109904] 120000	 598677	 598677	
+[    0.109910] 200000	 997796	 997796	
+[    0.109916] 300000	 1496694	 1496694	
+[    0.109922] 600000	 2993389	 2993389	
+[    0.109928] 792000	 3951274	 3951274	
+[    0.109934] 1008000	 5028895	 5028895	
+[    0.109940] 1200000	 5986779	 5986779	
+[    0.110076] cfg80211: Calling CRDA to update world regulatory domain
+[    0.114406] msgmni has been set to 71
+[    0.116265] io scheduler noop registered
+[    0.116304] io scheduler cfq registered (default)
+[    0.116506] wait stable.[296][cgu_vpu]
+[    0.129366] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.562505] console [ttyS1] enabled
+[    0.567295] brd: module loaded
+[    0.571045] loop: module loaded
+[    0.574881] zram: Created 2 device(s) ...
+[    0.579170] logger: created 256K log 'log_main'
+[    0.584287] tun: Universal TUN/TAP device driver, 1.6
+[    0.589565] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.596080] usbcore: registered new interface driver asix
+[    0.601752] usbcore: registered new interface driver ax88179_178a
+[    0.608132] usbcore: registered new interface driver cdc_ether
+[    0.614200] usbcore: registered new interface driver net1080
+[    0.620127] usbcore: registered new interface driver cdc_subset
+[    0.626289] usbcore: registered new interface driver zaurus
+[    0.632174] usbcore: registered new interface driver cdc_ncm
+[    0.638196] DWC IN OTG MODE
+[    0.641736] dwc2 dwc2: Keep PHY ON
+[    0.645259] dwc2 dwc2: Using Buffer DMA mode
+[    0.649728] dwc2 dwc2: Core Release: 3.00a
+[    0.654005] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.660540] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.667845] hub 1-0:1.0: USB hub found
+[    0.671792] hub 1-0:1.0: 1 port detected
+[    0.676008] dwc2 dwc2: DWC2 Host Initialized
+[    0.681458] pipe_request_dma: paddr = 0x2180000
+[    0.686197] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a2144000)
+[    0.695381] pipe_request_dma: paddr = 0x21c0000
+[    0.700169] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a2145000)
+[    0.709294] pipe_request_dma: paddr = 0x2200000
+[    0.714029] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a2146000)
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr+pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.753999] dwc2 dwc2: ID PIN CHANGED!
+[    0.768117] @@@@@ inner codec power up@@@@@@
+[    0.772573] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.778599] TCP: cubic registered
+[    0.782037] NET: Registered protocol family 17
+[    0.786975] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.792991] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.801907] Waiting 1sec before mounting root device...
+^[[    0.918025] codec_fast_start is finish
+^[^[^[^[^[^[^[^[^[[    1.808231] List of all partitions:
+[    1.811851] No filesystem could mount root, tried: 
+[    1.816904] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+[    1.825459] Rebooting in 3 seconds..Restarting after 4 ms
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+isvp_t23# >>> setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5'
+setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5'
+Unknown command 'setenv' - try 'help'
+isvp_t23# 
+>>> setenv bootcmd 'mmc read 0x80600000 0x1800 0x3000; if fatload mmc 0 0x81000000 uInitrd; then bootm 0x80600000 0x81000000; else bootm 0x80600000; fi'
+setenv bootcmd 'mmc read 0x80600000 0x1800 0x3000; if fatload mmc 0 0x81000000 uInitrd; then bootm 0x80600000 0x81000000; else bootm 0x80600000; fi'
+isvp_t23# 
+>>> saveenv
+saveenv
+Writing to MMC(0)... done
+isvp_t23# 
+>>> printenv bootcmd
+printenv bootcmd
+bootcmd=mmc read 0x80600000 0x1800 0x3000; if fatload mmc 0 0x81000000 uInitrd; then bootm 0x80600000 0x81000000; else bootm 0x80600000; fi
+isvp_t23# 
+>>> printenv bootargs
+printenv bootargs
+bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 init=/linuxrc root=/dev/mmcblk0p2 rw rootdelay=1
+isvp_t23# 
+>>> boot
+boot
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+Unknown command 'if' - try 'help'
+Unknown command 'then' - try 'help'
+Unknown command 'else' - try 'help'
+Unknown command 'fi' - try 'help'
+isvp_t23# 
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+
+MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
+Unknown command 'if' - try 'help'
+Unknown command 'then' - try 'help'
+Unknown command 'else' - try 'help'
+Unknown command 'fi' - try 'help'
+isvp_t23# 
