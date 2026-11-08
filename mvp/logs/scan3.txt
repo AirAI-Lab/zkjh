@@ -1,0 +1,17 @@
+h=596 err=0
+pos=0(0x0) pat=panic=5 abs=263283
+em=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|ethact=Jz4775-9161|ethaddr=00:11:22:33:44:66|gatewayip=193.169.3.1|ipaddr=193.169.3.206|loads_e
+pos=0(0x0) pat=panic=999 abs=211579
+e=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rdinit=/linuxrc panic=999999999|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|baudrate=115200|loads_echo=1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+pos=0(0x0) pat=bootargs=console abs=211500
+||||||||||||||||||||!|1|A|a|||||||||||||||||||||||||| |0|@|`||||bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rdinit=/linuxrc panic=999999999|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|baudrate
+pos=0(0x0) pat=bootargs=console abs=263188
+|||||||||||||||||||||||||||||||||||||||||||||Y||baudrate=115200|bootargs=console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|
+pos=0(0x0) pat=bootcmd=mmc abs=211595
+ mem=41M@0x0 rmem=23M@0x2900000 rdinit=/linuxrc panic=999999999|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|baudrate=115200|loads_echo=1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+pos=0(0x0) pat=bootcmd=mmc abs=263291
+x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|ethact=Jz4775-9161|ethaddr=00:11:22:33:44:66|gatewayip=193.169.3.1|ipaddr=193.169.3.206|loads_echo=1|ne
+pos=25165824(0x1800000) pat=bootargs=console abs=27539928
+||||||||||||||||||||!|1|A|a|||||||||||||||||||||||||| |0|@|`||||bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc mtdparts=jz_sfc:256K(boot),544K(tag),5M(kernel),3M(rootfs),2560K(recovery),4320K(system),512k(config),16M@0(all)|bootcmd=sf
+pos=25165824(0x1800000) pat=bootargs=console abs=27802072
+||||||||||||||||||||!|1|A|a|||||||||||||||||||||||||| |0|@|`||||bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc mtdparts=jz_sfc:256K(boot),544K(tag),5M(kernel),3M(rootfs),2560K(recovery),4320K(system),512k(config),16M@0(all)|bootcmd=sf
