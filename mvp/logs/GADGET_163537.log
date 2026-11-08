@@ -1,0 +1,22 @@
+>>> 
+
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /sys/class/udc/ 2>&1
+ls /sys/class/udc/ 2>&1
+ls: /sys/class/udc/: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /lib/modules/g_* 2>&1; /bin/busybox find / -name 'g_mass*' 2>/dev/null | /bin/busybox head -3
+ls /lib/modules/g_* 2>&1; /bin/busybox find / -name 'g_mass*' 
+2>/dev/null | /bin/busybox head -3
+ls: /lib/modules/g_*: No such file or directory
+head: applet not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> cat /proc/config.gz 2>/dev/null | /bin/busybox zcat 2>/dev/null | /bin/busybox grep GADGET | /bin/busybox head -5
+cat /proc/config.gz 2>/dev/null | /bin/busybox zcat 2>/dev/nul
+l | /bin/busybox grep GADGET | /bin/busybox head -5
+head: applet not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 

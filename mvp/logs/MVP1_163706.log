@@ -1,0 +1,45 @@
+>>> 
+
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> echo MVP_START; ls /dev/mmcblk* 2>&1; ls /sys/bus/i2c/devices/ 2>&1
+echo MVP_START; ls /dev/mmcblk* 2>&1; ls /sys/bus/i2c/devices/
+ 2>&1
+MVP_START
+ls: /dev/mmcblk*: No such file or directory
+[1;36mi2c-0[0m  [1;36mi2c-1[0m
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> mkdir -p /mmc 2>/dev/null; mount -t vfat /dev/mmcblk0p1 /mmc 2>&1; ls /mmc/sensor* /mmc/sample* 2>&1
+mkdir -p /mmc 2>/dev/null; mount -t vfat /dev/mmcblk0p1 /mmc 2
+>&1; ls /mmc/sensor* /mmc/sample* 2>&1
+
+mount: mounting /dev/mmcblk0p1 on /mmc failed: No such device
+ls: /mmc/sensor*: No such file or directory
+ls: /mmc/sample*: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /bin/busybox insmod /mmc/sensor_tp9950_t23.ko 2>&1; echo INSMOD_DONE
+/bin/busybox insmod /mmc/sensor_tp9950_t23.ko 2>&1; echo INSMO
+D_DONE
+insmod: can't read '/mmc/sensor_tp9950_t23.ko': No such file or directory
+INSMOD_DONE
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /sys/class/video4linux/ 2>&1; ls /dev/video* 2>&1; echo VIDEO_CHECK
+ls /sys/class/video4linux/ 2>&1; ls /dev/video* 2>&1; echo VID
+EO_CHECK
+ls: /dev/video*: No such file or directory
+VIDEO_CHECK
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> which sample-sdk 2>/dev/null; ls /mmc/sample* /system/bin/sample* 2>&1; ls /mmc/*.ko 2>&1; echo TOOLS_CHECK
+which sample-sdk 2>/dev/null; ls /mmc/sample* /system/bin/samp
+le* 2>&1; ls /mmc/*.ko 2>&1; echo TOOLS_CHECK
+
+ls: /mmc/sample*: No such file or directory
+ls: /system/bin/sample*: No such file or directory
+ls: /mmc/*.ko: No such file or directory
+TOOLS_CHECK
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 

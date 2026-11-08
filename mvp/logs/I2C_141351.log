@@ -1,13 +1,0 @@
-
-
-Hello Zeratul!
-[root@Zeratul:~]# 
-[root@Zeratul:~]# which i2cdetect i2cget; ls /dev/i2c* 2>/dev/null; cat /proc/bu
-s/i2c 2>/dev/null
--/bin/sh: which: not found
-[root@Zeratul:~]# 
-[root@Zeratul:~]# ls /sys/class/video4linux/ 2>/dev/null; lsmod 2>/dev/null | he
-ad
--/bin/sh: head: not found
-[root@Zeratul:~]# 
-[root@Zeratul:~]# 

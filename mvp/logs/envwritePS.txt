@@ -1,2 +1,2 @@
 ﻿ENVFINAL 32768B SAME=True
-content: baudrate=115200|bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rw rdinit=/init panic=999999999|bootcmd=fatload mmc 0 0x80600000 uImage-devtmpfs-lzma.bin; fatload mmc 0 0x81600000 rootfs-ask.cpio; bootm 0x80600000|bootdelay=1|ethact=Jz4775-9161|ethaddr=00:11:22:33:44:66|gatewayip=193.169.3.1|ipaddr=19
+content: baudrate=115200|bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rw rdinit=/init panic=999999999|bootcmd=fatload mmc 0 0x80600000 uImage-mmc-lzma.bin; fatload mmc 0 0x81600000 rootfs-ask.cpio; bootm 0x80600000|bootdelay=1|ethact=Jz4775-9161|ethaddr=00:11:22:33:44:66|gatewayip=193.169.3.1|ipaddr=193.169
