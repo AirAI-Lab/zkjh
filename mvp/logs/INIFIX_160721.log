@@ -1,0 +1,29 @@
+echo '::sysinit:/etc/init.d/rcS' > /etc/inittab; echo '::askfirst:-/bin/sh' >> /etc/inittab; echo '::shutdown:/bin/umount -a -r' >> /etc/inittab
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+exec /bin/busybox setsid /bin/sh -c 'exec /bin/busybox sh' < /dev/console > /dev/console 2>&1
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+
+MARKER_START
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+echo TEST_OK
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+id
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+MARKER_END
+

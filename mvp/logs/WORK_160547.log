@@ -1,0 +1,62 @@
+>>> 
+
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> sed -i 's|console::respawn.*|::askfirst:-/bin/sh|' /etc/inittab; kill -HUP 1
+sed -i 's|console::respawn.*|::askfirst:-/bin/sh|' /etc/inittab; kill -HUP 1
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> 
+
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> mkdir -p /mmc; mount -t vfat /dev/mmcblk0p1 /mmc 2>&1
+mkdir -p /mmc; mount -t vfat /dev/mmcblk0p1 /mmc 2>&1
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> ls /mmc/
+ls /mmc/
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> /bin/busybox insmod /mmc/sensor_tp9950_t23.ko 2>&1
+/bin/busybox insmod /mmc/sensor_tp9950_t23.ko 2>&1
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> ls /sys/bus/i2c/devices/
+ls /sys/bus/i2c/devices/
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
+>>> dmesg | /bin/busybox grep -i tp9950
+dmesg | /bin/busybox grep -i tp9950
+
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+can't run '/sbin/getty': No such file or directory
+
