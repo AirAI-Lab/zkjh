@@ -1,79 +1,0 @@
-SF: 2621440 bytes @ 0x898000 Read: OK
---->read spend 842 ms
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Immortal
-   Image Type:   MIPS Linux Kernel Image (lzma compressed)
-   Data Size:    2098743 Bytes = 2 MiB
-   Load Address: 80010000
-   Entry Point:  802eb7c0
-   Verifying Checksum ... OK
-   Uncompressing Kernel Image ... OK
-
-Starting kernel ...
-
-
-
-U-Boot SPL 2013.07 (Nov 06 2026 - 10:46:01)
-Board info: T23N
-
-apll_freq = 900000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 400000000
-DDR_PAR of eFuse: 00000000 00000000
-sdram init finished
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Nov 06 2026 - 10:46:01)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 435k for U-Boot at: 83f90000
-Reserving 32772k for malloc() at: 81f8f000
-Reserving 32 Bytes for Board Info at: 81f8efe0
-Reserving 124 Bytes for Global Data at: 81f8ef64
-Reserving 128k for boot params() at: 81f6ef64
-Stack Pointer at: 81f6ef48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-the manufacturer c2
-SF: Detected MX25L128**E
-
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# 
-[INTERRUPT SENT]
-
-[send] printenv
-printenv
-baudrate=115200
-bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc mtdparts=jz_sfc:256K(boot),544K(tag),5M(kernel),3M(rootfs),2560K(recovery),4320K(system),512k(config),16M@0(all)
-bootcmd=sf probe;sf read 0x80600000 0x898000 0x280000; bootm 0x80600000
-bootdelay=1
-ethact=Jz4775-9161
-ethaddr=00:11:22:33:44:66
-gatewayip=193.169.3.1
-ipaddr=193.169.3.206
-loads_echo=1
-netmask=255.255.255.0
-serverip=193.169.4.2
-stderr=serial
-stdin=serial
-stdout=serial
-
-Environment size: 524/4092 bytes
-isvp_t23# 

@@ -1,95 +1,0 @@
-
-
-U-Boot SPL 2013.07 (Nov 06 2026 - 11:13:53)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-DDR_PAR of eFuse: 00000000 00000000
-sdram init finished
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Nov 06 2026 - 11:13:53)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 435k for U-Boot at: 83f90000
-Reserving 32772k for malloc() at: 81f8f000
-Reserving 32 Bytes for Board Info at: 81f8efe0
-Reserving 124 Bytes for Global Data at: 81f8ef64
-Reserving 128k for boot params() at: 81f6ef64
-Stack Pointer at: 81f6ef48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-the manufacturer c2
-SF: Detected MX25L128**E
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-isvp_t23# 
-isvp_t23# 
-isvp_t23# >>> setenv verify no
-setenv verify no
-isvp_t23# 
->>> fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
-fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
-reading uImage-fix3-lzma.bin
-1674872 bytes read in 89 ms (17.9 MiB/s)
-isvp_t23# 
->>> bootm 0x80600000
-806000�
-
-
-U-Boot SPL 2013.07 (Nov 06 2026 - 11:13:53)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-DDR_PAR of eFuse: 00000000 00000000
-sdram init finished
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Nov 06 2026 - 11:13:53)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 435k for U-Boot at: 83f90000
-Reserving 32772k for malloc() at: 81f8f000
-Reserving 32 Bytes for Board Info at: 81f8efe0
-Reserving 124 Bytes for Global Data at: 81f8ef64
-Reserving 128k for boot params() at: 81f6ef64
-Stack Pointer at: 81f6ef48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-the manufacturer c2
-SF: Detected MX25L128**E
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-the manufacturer c2
-SF: Detected MX25L128**E
-
---->probe spend 4 ms
-SF: 2501052 bytes @ 0xb18000 Read: OK
---->read spend 804 ms
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Archon
-   Image Type:   MIPS Linux Kernel Image (jzlzma compressed)
-   Data Size:    2500892 Bytes = 2.4 MiB
-   Load Address: 80010000
-   Entry Point:  8038f630
-   Uncompressing LZMA Hardware Kernel Image ... 

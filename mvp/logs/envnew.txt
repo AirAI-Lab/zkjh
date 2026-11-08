@@ -1,3 +1,0 @@
-﻿start
-NEW-ENV 1024B SAME=True
-content: bootargs=console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rdinit=/linuxrc panic=999999999|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|baudrate=115200|loads_echo=1|||||||||||||||||

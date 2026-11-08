@@ -1,4 +1,0 @@
-﻿start 9:53:34
-uboot 240792B (padded 241152) @offset 17408 : OK
-kernel 2500120B (padded 2500608) @offset 3145728 : OK
-ALL DONE

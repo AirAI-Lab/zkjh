@@ -1,109 +1,0 @@
-
-
-U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 441k for U-Boot at: 83f90000
-Reserving 32800k for malloc() at: 81f88000
-Reserving 32 Bytes for Board Info at: 81f87fe0
-Reserving 124 Bytes for Global Data at: 81f87f64
-Reserving 128k for boot params() at: 81f67f64
-Stack Pointer at: 81f67f48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1 fatload mmc 0 0x80600000 u-boot-with-spl.bin
-reading u-boot-with-spl.bin
-251956 bytes read in 17 ms (14.1 MiB/s)
-isvp_t23# 
-[OK] fatload mmc 0 0x80600000 u-boot-with-spl.bin
-sf probe
-the manufacturer c2
-SF: Detected MX25L128**E
-
---->probe spend 4 ms
-isvp_t23# 
-[OK] sf probe
-sf erase 0x0 0x40000
-SF: 262144 bytes @ 0x0 Erased: OK
---->erase spend 941 ms
-isvp_t23# 
-[OK] sf erase 0x0 0x40000
-sf write 0x80600000 0x0 0x3d834
-SF: 251956 bytes @ 0x0 Written: OK
---->write spend 536 ms
-isvp_t23# 
-[OK] sf write 0x80600000 0x0 0x3d834
-sf read 0x81600000 0x0 0x3d834
-SF: 251956 bytes @ 0x0 Read: OK
---->read spend 84 ms
-isvp_t23# 
-[OK] sf read 0x81600000 0x0 0x3d834
-cmp.b 0x80600000 0x81600000 0x3d834
-Total of 251956 byte(s) were the same
-isvp_t23# 
-[OK] cmp.b 0x80600000 0x81600000 0x3d834
-reset
-reset in 4ms
-
-U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 441k for U-Boot at: 83f90000
-Reserving 32800k for malloc() at: 81f88000
-Reserving 32 Bytes for Board Info at: 81f87fe0
-Reserving 124 Bytes for Global Data at: 81f87f64
-Reserving 128k for boot params() at: 81f67f64
-Stack Pointer at: 81f67f48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-
-MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Archon
-   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
-   Data Size:    2500056 Bytes = 2.4 MiB
-   Load Address: 80010000
-   Entry Point:  8038f370
-   Verifying Checksum ... OK
-Unimplemented compression type 5
-isvp_t23# 
-[OK] reset
-
-RESULT: SPL BURN OK

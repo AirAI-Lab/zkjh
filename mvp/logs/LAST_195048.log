@@ -1,9 +1,0 @@
-version
-
-U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
-mips-linux-gnu-gcc (Ingenic Ingenic r3.3.0-gcc540 Smaller Size 2023.05-22) 5.4.0
-GNU ld (Ingenic r2.3.3 2016.12) 2.24.51.20140512
-isvp_t23# 
-isvp_t23# fatload mmc 0 0x80600000 uImage-fix3-lzma.bin
-** Unrecognized filesystem type **
-isvp_t23# 

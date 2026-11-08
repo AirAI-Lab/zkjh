@@ -1,110 +1,0 @@
-
-
-U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 441k for U-Boot at: 83f90000
-Reserving 32800k for malloc() at: 81f88000
-Reserving 32 Bytes for Board Info at: 81f87fe0
-Reserving 124 Bytes for Global Data at: 81f87f64
-Reserving 128k for boot params() at: 81f67f64
-Stack Pointer at: 81f67f48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-
-MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Archon
-   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
-   Data Size:    2500056 Bytes = 2.4 MiB
-   Load Address: 80010000
-   Entry Point:  8038f370
-   Verifying Checksum ... OK
-Unimplemented compression type 5
-isvp_t23# >>> setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'
-setenv bootargs 'console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc'
-isvp_t23# 
->>> fatload mmc 0 0x80600000 uImage-defense-lzma.bin
-fatload mmc 0 0x80600000 uImage-defense-lzma.bin
-reading uImage-defense-lzma.bin
-1481487 bytes read in 80 ms (17.7 MiB/s)
-isvp_t23# 
->>> fatload mmc 0 0x81000000 rootfs.cpio
-fatload mmc 0 0x81000000 rootfs.cpio
-reading rootfs.cpio
-4300800 bytes read in 219 ms (18.7 MiB/s)
-isvp_t23# 
->>> bootm 0x80600000 0x81000000
-bootm 0x80600000 0x81000000
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Archon
-   Image Type:   MIPS Linux Kernel Image (lzma compressed)
-   Data Size:    1481423 Bytes = 1.4 MiB
-   Load Address: 80010000
-   Entry Point:  80315800
-   Verifying Checksum ... OK
-Wrong Ramdisk Image Format
-Ramdisk image is corrupt or invalid
-isvp_t23# 
-
-
-U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 441k for U-Boot at: 83f90000
-Reserving 32800k for malloc() at: 81f88000
-Reserving 32 Bytes for Board Info at: 81f87fe0
-Reserving 124 Bytes for Global Data at: 81f87f64
-Reserving 128k for boot params() at: 81f67f64
-Stack Pointer at: 81f67f48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-
-MMC read: dev # 0, block # 6144, count 12288 ... 12288 blocks read: OK
-## Booting kernel from Legacy Image at 80600000 ...
-   Image Name:   Linux-3.10.14-Archon
-   Image Type:   MIPS Linux Kernel Image (Unknown Compression)
-   Data Size:    2500056 Bytes = 2.4 MiB
-   Load Address: 80010000
-   Entry Point:  8038f370
-   Verifying Checksum ... OK
-Unimplemented compression type 5
-isvp_t23# 

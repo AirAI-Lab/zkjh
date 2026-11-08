@@ -1,3 +1,0 @@
-stored=09d05995 calc32k=09d05995 match=True
-calc4k=af717179 m4=False
-baudrate=115200|bootargs=console=ttyS1,115200 mem=41M@0x0 rmem=23M@0x2900000 root=/dev/ram0 rw rdinit=/linuxrc panic=5|bootcmd=mmc read 0x80600000 0x1800 0x3000; fatload mmc 0 0x81000000 uInitrd; bootm 0x80600000 0x81000000|bootdelay=1|ethact=Jz4775-9161|ethaddr=00:11:22:33:44:66|gatewayip=193.169.3.1|ipaddr=193.169.3.206|loads_echo=1|netmask=255.255.255.0|serverip=193.169.4.2|stderr=serial|stdin=serial|stdout=serial||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

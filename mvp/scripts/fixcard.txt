@@ -1,5 +1,0 @@
-select disk 1
-clean
-create partition primary offset=10240
-format fs=fat32 quick label=T23BOOT
-assign letter=F

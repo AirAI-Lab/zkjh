@@ -1,2 +1,0 @@
-﻿start
-ALIGNED-RESTORE 1024B SAME=True

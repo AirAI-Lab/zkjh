@@ -1,2 +1,0 @@
-To https://github.com/AirAI-Lab/zkjh.git
-   c5f037c..370b01e  main -> main

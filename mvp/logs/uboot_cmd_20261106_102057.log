@@ -1,9 +1,0 @@
-[recv] 
-isvp_t23# 
-isvp_t23# 
-
-[send] cmp.b 0x80600000 0x81600000 0x40000
-cmp.b 0x80600000 0x81600000 0x40000
-byte at 0x80600000 (0x27) != byte at 0x81600000 (0x6)
-Total of 0 byte(s) were the same
-isvp_t23# 

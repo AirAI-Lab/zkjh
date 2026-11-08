@@ -1,68 +1,0 @@
-
-
-U-Boot SPL 2013.07 (Nov 06 2026 - 11:13:53)
-Board info: T23N
-
-apll_freq = 1188000000 
-mpll_freq = 1200000000 
-sdram init start
-DDR clk rate 600000000
-DDR_PAR of eFuse: 00000000 00000000
-sdram init finished
-image entry point: 0x80100000
-
-
-U-Boot 2013.07 (Nov 06 2026 - 11:13:53)
-
-Board: ISVP (Ingenic XBurst T23 SoC)
-DRAM:  64 MiB
-Top of RAM usable for U-Boot at: 84000000
-Reserving 435k for U-Boot at: 83f90000
-Reserving 32772k for malloc() at: 81f8f000
-Reserving 32 Bytes for Board Info at: 81f8efe0
-Reserving 124 Bytes for Global Data at: 81f8ef64
-Reserving 128k for boot params() at: 81f6ef64
-Stack Pointer at: 81f6ef48
-Now running in RAM - U-Boot at: 83f90000
-MMC:   msc: 0
-the manufacturer c2
-SF: Detected MX25L128**E
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   ====>PHY not found!Jz4775-9161
-Hit any key to stop autoboot:  1  0 
-isvp_t23# >>> fatload mmc 0 0x80600000 u-boot-1188-nodelay.bin
-fatload mmc 0 0x80600000 u-boot-1188-nodelay.bin
-Unknown command 'fatload' - try 'help'
-isvp_t23# 
->>> sf probe
-sf probe
-the manufacturer c2
-SF: Detected MX25L128**E
-
---->probe spend 5 ms
-isvp_t23# 
->>> mw.b 0x80600000 0xff 0x0
-mw.b 0x80600000 0xff 0x0
-isvp_t23# 
->>> sf erase 0x0 0x40000
-sf erase 0x0 0x40000
-SF: 262144 bytes @ 0x0 Erased: OK
---->erase spend 923 ms
-isvp_t23# 
->>> sf write 0x80600000 0x0 0x3ec10
-sf write 0x80600000 0x0 0x3ec10
-SF: 257040 bytes @ 0x0 Written: OK
---->write spend 165 ms
-isvp_t23# 
->>> sf read 0x81600000 0x0 0x3ec10
-sf read 0x81600000 0x0 0x3ec10
-SF: 257040 bytes @ 0x0 Read: OK
---->read spend 85 ms
-isvp_t23# 
->>> cmp.b 0x80600000 0x81600000 0x3ec10
-cmp.b 0x80600000 0x81600000 0x3ec10
-Total of 257040 byte(s) were the same
-isvp_t23# 
