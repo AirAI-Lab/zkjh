@@ -1,0 +1,606 @@
+
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+reading uImage-mmc-lzma.bin
+1566354 bytes read in 83 ms (18 MiB/s)
+reading rootfs-ask.cpio
+4799488 bytes read in 244 ms (18.8 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1566290 Bytes = 1.5 MiB
+   Load Address: 80010000
+   Entry Point:  80341a00
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M2a:pre-addpart
+M2b:pre-memmap
+M2c:post-memmap
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #37 PREEMPT Sun Nov 8 17:19:37 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:DBA5BA8C
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00444000 @ 00010000 (usable)
+[    0.000000]  memory: 0003c000 @ 00454000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initial ramdisk at: 0x81600000 (4260032 bytes)
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rw rdinit=/init panic=999999999
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 14684k/41984k available (3302k kernel code, 27300k reserved, 1062k data, 240k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090017] pid_max: default: 32768 minimum: 301
+[    0.090240] Mount-cache hash table entries: 512
+[    0.090744] Initializing cgroup subsys debug
+[    0.090762] Initializing cgroup subsys freezer
+[    0.092108] devtmpfs: initialized
+[    0.093174] regulator-dummy: no parameters
+[    0.093347] NET: Registered protocol family 16
+[    0.093632] register process exit failed.
+[    0.103829] bio: create slab <bio-0> at 0
+[    0.105874] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.106209] jz TCU driver register completed
+[    0.106432] usbcore: registered new interface driver usbfs
+[    0.106482] usbcore: registered new interface driver hub
+[    0.106645] usbcore: registered new device driver usb
+[    0.106864] i2c i2c-0: i2c0 skip clk init.
+[    0.106914]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106980] i2c i2c-1: i2c1 register ok.
+[    0.107016] media: Linux media interface: v0.10
+[    0.107072] Linux video capture interface: v2.00
+[    0.108792] Switching to clocksource jz_clocksource
+[    0.109941] NET: Registered protocol family 2
+[    0.110458] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.110484] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.110501] TCP: Hash tables configured (established 512 bind 512)
+[    0.110554] TCP: reno registered
+[    0.110568] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.110590] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.110833] NET: Registered protocol family 1
+[    0.111025] Trying to unpack rootfs image as initramfs...
+[    0.118911] cfg80211: Calling CRDA to update world regulatory domain
+[    0.142832] Freeing initrd memory: 4160K (81600000 - 81a10000)
+[    0.143082] freq_udelay_jiffys[0].max_num = 10
+[    0.143092] cpufreq 	udelay 	loops_per_jiffy	
+[    0.143098] 12000	 59867	 59867	
+[    0.143104] 24000	 119735	 119735	
+[    0.143110] 60000	 299338	 299338	
+[    0.143116] 120000	 598677	 598677	
+[    0.143122] 200000	 997796	 997796	
+[    0.143129] 300000	 1496694	 1496694	
+[    0.143135] 600000	 2993389	 2993389	
+[    0.143141] 792000	 3951274	 3951274	
+[    0.143148] 1008000	 5028895	 5028895	
+[    0.143154] 1200000	 5986779	 5986779	
+[    0.147530] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.147545] jffs2: version 2.2. (NAND) (SUMMARY)  �� 2001-2006 Red Hat, Inc.
+[    0.147865] msgmni has been set to 36
+[    0.149992] io scheduler noop registered
+[    0.150030] io scheduler cfq registered (default)
+[    0.150316] wait stable.[296][cgu_vpu]
+[    0.163418] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.619510] console [ttyS1] enabled
+[    0.624642] brd: module loaded
+[    0.628598] loop: module loaded
+[    0.632614] zram: Created 2 device(s) ...
+[    0.636911] logger: created 256K log 'log_main'
+[    0.642127] jz_sfc Build : Nov  8 2026 17:19:29
+[    0.646876] wait stable.[296][cgu_sfc]
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    0.663396] the id code = c22018, the flash name is MX25L12835F
+[    0.669568] jz-sfc jz-sfc: sfc use DMA mode
+[    0.673957] jz-sfc jz-sfc: nor flash quad mode is set, cmd = 6b,now use quad mode!
+[    0.681810] JZ SFC Controller for SFC channel 0 driver register
+[    0.689029] SPI NOR MTD LOAD OK
+[    0.692334] tun: Universal TUN/TAP device driver, 1.6
+[    0.697562] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.704226] usbcore: registered new interface driver asix
+[    0.709943] usbcore: registered new interface driver ax88179_178a
+[    0.716289] usbcore: registered new interface driver cdc_ether
+[    0.722465] usbcore: registered new interface driver net1080
+[    0.728365] usbcore: registered new interface driver cdc_subset
+[    0.734605] usbcore: registered new interface driver zaurus
+[    0.740495] usbcore: registered new interface driver cdc_ncm
+[    0.746476] DWC IN OTG MODE
+[    0.750083] dwc2 dwc2: Keep PHY ON
+[    0.753608] dwc2 dwc2: Using Buffer DMA mode
+[    0.758029] dwc2 dwc2: Core Release: 3.00a
+[    0.762337] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.768863] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.776309] hub 1-0:1.0: USB hub found
+[    0.780262] hub 1-0:1.0: 1 port detected
+[    0.784457] dwc2 dwc2: DWC2 Host Initialized
+[    0.789139] i2c /dev entries driver
+[    0.793505] wait stable.[296][cgu_msc0]
+[    0.797480] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.815781] jzmmc_v1.2 jzmmc_v1.2.0: vmmc regulator missing
+[    0.821913] jzmmc_v1.2 jzmmc_v1.2.0: register success!
+[    0.827905] pipe_request_dma: paddr = 0x1640000
+[    0.832697] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a161b000)
+[    0.841835] pipe_request_dma: paddr = 0x1680000
+[    0.846569] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a161c000)
+[    0.855725] pipe_request_dma: paddr = 0x16c0000
+[    0.860538] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a161d000)
+[    0.869395] dwc2 dwc2: ID PIN CHANGED!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+ua[    0.878896] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|r|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr+msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+rispr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr|pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    0.928827] @@@@@ inner codec power up@@@@@@
+[    0.933297] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.939251] TCP: cubic registered
+[    0.942689] NET: Registered protocol family 17
+[    0.947865] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.953920] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.961117] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+p[    0.970985] Freeing unused kernel memory: 240K (80454000 - 80490000)
+r+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|prFormat config partition...
+Done
+mount system failed
+[    1.021153] zram0: detected capacity change from 0 to 16777216
+[    1.030909] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd
+Please press Enter to activate this console. |pr+pr+pr+pr[    1.068847] codec_fast_start is finish
+[    1.089855] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.218837] cgu_msc0 can not set to 24000000, will change!!!
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    1.288841] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    1.318836] jzmmc_v1.2 jzmmc_v1.2.0: card inserted, state=0
+[    1.341623] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr[    1.408878] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.458840] cgu_msc0 can not set to 24000000, will change!!!
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    1.511606] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    1.616436] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr[    1.668899] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.718844] mmc0: new SDHC card at address 0001
+[    1.723972] mmcblk0: mmc0:0001 USD 29.7 GiB 
+[    1.730073]  mmcblk0: p1
+
+
+Hello Zeratul!
+[root@Zeratul:~]# 
+[root@Zeratul:~]# mkdir -p /mmc
+[root@Zeratul:~]# 
+[root@Zeratul:~]# mount -t vfat /dev/mmcblk0p1 /mmc
+mount: mounting /dev/mmcblk0p1 on /mmc failed: No such device
+[root@Zeratul:~]# 
+[root@Zeratul:~]# chmod +x /mmc/i2cscan
+chmod: /mmc/i2cscan: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# /mmc/i2cscan 0
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# /mmc/i2cscan 1
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# /bin/busybox insmod /mmc/sensor_tp9950_t23.ko
+insmod: can't read '/mmc/sensor_tp9950_t23.ko': No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# /mmc/i2cscan 0
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# /mmc/i2cscan 1
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# echo TP_FINAL
+TP_FINAL
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+
+U-Boot SPL 2013.07 (Jul 14 2023 - 16:58:52)
+Board info: T23N
+
+apll_freq = 1188000000 
+mpll_freq = 1200000000 
+sdram init start
+DDR clk rate 600000000
+image entry point: 0x80100000
+
+
+U-Boot 2013.07 (Jul 14 2023 - 16:58:52)
+
+Board: ISVP (Ingenic XBurst T23 SoC)
+DRAM:  64 MiB
+Top of RAM usable for U-Boot at: 84000000
+Reserving 441k for U-Boot at: 83f90000
+Reserving 32800k for malloc() at: 81f88000
+Reserving 32 Bytes for Board Info at: 81f87fe0
+Reserving 124 Bytes for Global Data at: 81f87f64
+Reserving 128k for boot params() at: 81f67f64
+Stack Pointer at: 81f67f48
+Now running in RAM - U-Boot at: 83f90000
+MMC:   msc: 0
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ====>PHY not found!Jz4775-9161
+Hit any key to stop autoboot:  1  0 
+reading uImage-mmc-lzma.bin
+1566354 bytes read in 83 ms (18 MiB/s)
+reading rootfs-ask.cpio
+4799488 bytes read in 244 ms (18.8 MiB/s)
+## Booting kernel from Legacy Image at 80600000 ...
+   Image Name:   Linux-3.10.14-Archon
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1566290 Bytes = 1.5 MiB
+   Load Address: 80010000
+   Entry Point:  80341a00
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+
+DBG:A probe
+DBG:B prom_init
+DBG:C bugs
+DBG:C2 pre-mem
+M1:pre-plat
+P1:post-setup-init
+K1:loop1-start
+.R8P1
+UR8P2
+R8P1
+PR8P2
+R8P1
+QR8P2
+R8P1
+RR8P2
+R8P1
+SR8P2
+R8P1
+TR8P2
+g
+.bA1234
+cB1234
+dCDEF-SSI
+eD1234
+fM1234
+gE1234
+hF1234
+iG1234
+jH1234
+kN1234
+lI1234
+mK1234
+nL1234
+oJ1234
+g
+.!g
+"g
+#g
+$g
+%g
+&g
+'g
+(g
+)g
+*g
++g
+,g
+-g
+.g
+/g
+0g
+.1g
+2g
+3g
+4g
+5g
+6SKIP-SSI0
+7g
+8g
+9g
+Wg
+Xg
+Yg
+Zg
+[g
+\g
+]g
+.^g
+
+R6:loop1-done
+K3:loop2-start
+o   
+      o        o! " # $ % ' , / o1 7 8 9 W X Z [ o
+K4:loop2-done
+P2:post-init-clk
+M2:post-plat
+M2a:pre-addpart
+M2b:pre-memmap
+M2c:post-memmap
+M3:pre-parse
+M4:post-parse
+M5:pre-bootmem
+M6:post-bootmem
+DBG:D mem_init
+DBG:E smp
+DBG:F cache
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.14-Archon (wennu@Eli) (gcc version 5.4.0 (Ingenic Linux-Release3.3.0-Default(xburst1(fp32)+uclibc0.9.33.2) Smaller libc 2022.11-07) ) #37 PREEMPT Sun Nov 8 17:19:37 CST 2026
+[    0.000000] Ingenic Kernel version H20241112a
+[    0.000000] CPU0 RESET ERROR PC:4960548C
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic Xburst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] cgu_sfc clk should be opened!
+[    0.000000] cgu_vpu clk should be opened!
+[    0.000000] CCLK:1188MHz L2CLK:594Mhz H0CLK:200MHz H2CLK:200Mhz PCLK:100Mhz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00444000 @ 00010000 (usable)
+[    0.000000]  memory: 0003c000 @ 00454000 (usable after init)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 02900000 @ 00000000 (usable)
+[    0.000000] Initial ramdisk at: 0x81600000 (4260032 bytes)
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x028fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x028fffff]
+[    0.000000] Primary instruction cache 16kB, 8-way, VIPT, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pls check processor_id[0x00d00100],sc_jz not support!
+[    0.000000] MIPS secondary cache 64kB, 8-way, linesize 32 bytes.
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 10414
+[    0.000000] Kernel command line: console=ttyS1,115200n8 mem=41M@0x0 rmem=23M@0x2900000 rw rdinit=/init panic=999999999
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 14684k/41984k available (3302k kernel code, 27300k reserved, 1062k data, 240k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:347
+[    0.000000] clockevents_config_and_register success.
+[    0.000020] Calibrating delay loop... 1185.38 BogoMIPS (lpj=5926912)
+[    0.090017] pid_max: default: 32768 minimum: 301
+[    0.090240] Mount-cache hash table entries: 512
+[    0.090741] Initializing cgroup subsys debug
+[    0.090760] Initializing cgroup subsys freezer
+[    0.092110] devtmpfs: initialized
+[    0.093174] regulator-dummy: no parameters
+[    0.093348] NET: Registered protocol family 16
+[    0.093633] register process exit failed.
+[    0.103829] bio: create slab <bio-0> at 0
+[    0.105875] jz-dma jz-dma: JZ SoC DMA initialized
+[    0.106210] jz TCU driver register completed
+[    0.106433] usbcore: registered new interface driver usbfs
+[    0.106483] usbcore: registered new interface driver hub
+[    0.106646] usbcore: registered new device driver usb
+[    0.106865] i2c i2c-0: i2c0 skip clk init.
+[    0.106914]  (null): set:249  hold:250 dev=100000000 h=500 l=500
+[    0.106981] i2c i2c-1: i2c1 register ok.
+[    0.107017] media: Linux media interface: v0.10
+[    0.107073] Linux video capture interface: v2.00
+[    0.108793] Switching to clocksource jz_clocksource
+[    0.109941] NET: Registered protocol family 2
+[    0.110458] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.110484] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.110501] TCP: Hash tables configured (established 512 bind 512)
+[    0.110554] TCP: reno registered
+[    0.110568] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.110590] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.110833] NET: Registered protocol family 1
+[    0.111025] Trying to unpack rootfs image as initramfs...
+[    0.118914] cfg80211: Calling CRDA to update world regulatory domain
+[    0.142826] Freeing initrd memory: 4160K (81600000 - 81a10000)
+[    0.143077] freq_udelay_jiffys[0].max_num = 10
+[    0.143086] cpufreq 	udelay 	loops_per_jiffy	
+[    0.143093] 12000	 59867	 59867	
+[    0.143099] 24000	 119735	 119735	
+[    0.143105] 60000	 299338	 299338	
+[    0.143111] 120000	 598677	 598677	
+[    0.143118] 200000	 997796	 997796	
+[    0.143124] 300000	 1496694	 1496694	
+[    0.143130] 600000	 2993389	 2993389	
+[    0.143136] 792000	 3951274	 3951274	
+[    0.143142] 1008000	 5028895	 5028895	
+[    0.143148] 1200000	 5986779	 5986779	
+[    0.147525] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.147540] jffs2: version 2.2. (NAND) (SUMMARY)  �� 2001-2006 Red Hat, Inc.
+[    0.147860] msgmni has been set to 36
+[    0.149980] io scheduler noop registered
+[    0.150017] io scheduler cfq registered (default)
+[    0.150302] wait stable.[296][cgu_vpu]
+[    0.163419] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1
+[    0.619499] console [ttyS1] enabled
+[    0.624629] brd: module loaded
+[    0.628585] loop: module loaded
+[    0.632602] zram: Created 2 device(s) ...
+[    0.636897] logger: created 256K log 'log_main'
+[    0.642112] jz_sfc Build : Nov  8 2026 17:19:29
+[    0.646860] wait stable.[296][cgu_sfc]
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    0.663380] the id code = c22018, the flash name is MX25L12835F
+[    0.669551] jz-sfc jz-sfc: sfc use DMA mode
+[    0.673942] jz-sfc jz-sfc: nor flash quad mode is set, cmd = 6b,now use quad mode!
+[    0.681792] JZ SFC Controller for SFC channel 0 driver register
+[    0.689014] SPI NOR MTD LOAD OK
+[    0.692319] tun: Universal TUN/TAP device driver, 1.6
+[    0.697545] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.704207] usbcore: registered new interface driver asix
+[    0.709924] usbcore: registered new interface driver ax88179_178a
+[    0.716267] usbcore: registered new interface driver cdc_ether
+[    0.722446] usbcore: registered new interface driver net1080
+[    0.728345] usbcore: registered new interface driver cdc_subset
+[    0.734586] usbcore: registered new interface driver zaurus
+[    0.740477] usbcore: registered new interface driver cdc_ncm
+[    0.746456] DWC IN OTG MODE
+[    0.750063] dwc2 dwc2: Keep PHY ON
+[    0.753588] dwc2 dwc2: Using Buffer DMA mode
+[    0.758009] dwc2 dwc2: Core Release: 3.00a
+[    0.762319] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller
+[    0.768847] dwc2 dwc2: new USB bus registered, assigned bus number 1
+[    0.776293] hub 1-0:1.0: USB hub found
+[    0.780245] hub 1-0:1.0: 1 port detected
+[    0.784441] dwc2 dwc2: DWC2 Host Initialized
+[    0.789124] i2c /dev entries driver
+[    0.793489] wait stable.[296][cgu_msc0]
+[    0.797463] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    0.815764] jzmmc_v1.2 jzmmc_v1.2.0: vmmc regulator missing
+[    0.821895] jzmmc_v1.2 jzmmc_v1.2.0: register success!
+[    0.827888] pipe_request_dma: paddr = 0x1640000
+[    0.832681] dma dma0chan24: Channel 24 have been requested.(phy id 7,type 0x06 desc a161b000)
+[    0.841820] pipe_request_dma: paddr = 0x1680000
+[    0.846553] dma dma0chan25: Channel 25 have been requested.(phy id 6,type 0x06 desc a161c000)
+[    0.855709] pipe_request_dma: paddr = 0x16c0000
+[    0.860523] dma dma0chan26: Channel 26 have been requested.(phy id 5,type 0x04 desc a161d000)
+[    0.869381] dwc2 dwc2: ID PIN CHANGED!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+ua[    0.878897] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|r|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr+msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+rispr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr|pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    0.928827] @@@@@ inner codec power up@@@@@@
+[    0.933297] @@@@ audio driver ok(version H20230614a) @@@@@
+[    0.939251] TCP: cubic registered
+[    0.942689] NET: Registered protocol family 17
+[    0.947864] soc_vpu probe success,version:1.0.0-03203fd46d
+[    0.953921] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    0.961117] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+p[    0.970985] Freeing unused kernel memory: 240K (80454000 - 80490000)
+r+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|prFormat config partition...
+Done
+mount system failed
+[    1.021194] zram0: detected capacity change from 0 to 16777216
+[    1.030909] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd
+Please press Enter to activate this console. |pr+pr+pr+pr[    1.068849] codec_fast_start is finish
+[    1.089853] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.218838] cgu_msc0 can not set to 24000000, will change!!!
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    1.288841] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    1.318836] jzmmc_v1.2 jzmmc_v1.2.0: card inserted, state=0
+[    1.341621] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr[    1.408876] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.458841] cgu_msc0 can not set to 24000000, will change!!!
++pr+cpu|pr+pr+pr+pr+tcu|pr+pr+pr+pr+csi|pr+pr+pr+pr+sfc|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+aes|pr+pr+pr+pr+dtr|pr+pr[    1.511610] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+ahb|pr+pr+pr+pr+des|pr+pr+pr+pr+lcd|pr+pr+pr+pr+has|pr+pr+pr+pr+sad|pr+pr+pr+pr+i2c|pr+pr+pr+pr+otg|pr+pr+pr+pr+gma|pr+pr+pr+pr+avp|pr[    1.616440] cgu_msc0 can not set to 24000000, will change!!!
++pr+pr+pr+ddr|pr+pr+pr+pr+rsa|pr+pr+pr+pr+isp|pr+pr+pr+pr+uar|pr+pr+pr+pr+aic|pr+pr+pr+pr+ssi|pr+pr+pr+pr+efu|pr+pr+pr+pr+ivd|pr+pr+pr+pr[    1.668900] cgu_msc0 can not set to 24000000, will change!!!
++msc|pr+pr+pr+pr+apb|pr+pr+pr+pr+ris|pr+pr+pr+pr+pdm|pr+pr+pr+pr+uar|pr+pr+pr+pr+i2c|pr+pr+pr+pr+msc|pr+pr+pr+pr+sys|pr+pr+pr+pr+ipu|pr+pr+pr[    1.718843] mmc0: new SDHC card at address 0001
+[    1.723975] mmcblk0: mmc0:0001 USD 29.7 GiB 
+[    1.730072]  mmcblk0: p1

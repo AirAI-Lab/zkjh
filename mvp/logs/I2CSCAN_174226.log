@@ -1,0 +1,30 @@
+>>> 
+
+
+Hello Zeratul!
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /bin/busybox i2cdetect -y 0 2>&1; echo BUS0
+/bin/busybox i2cdetect -y 0 2>&1; echo BUS0
+i2cdetect: applet not found
+BUS0
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /bin/busybox i2cdetect -y 1 2>&1; echo BUS1
+/bin/busybox i2cdetect -y 1 2>&1; echo BUS1
+i2cdetect: applet not found
+BUS1
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /bin/busybox i2cget -y 0 0x37 0x00 2>&1; echo GET37
+/bin/busybox i2cget -y 0 0x37 0x00 2>&1; echo GET37
+i2cget: applet not found
+GET37
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /bin/busybox i2cget -y 1 0x37 0x00 2>&1; echo GET37B
+/bin/busybox i2cget -y 1 0x37 0x00 2>&1; echo GET37B
+i2cget: applet not found
+GET37B
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 

@@ -1,0 +1,26 @@
+>>> 
+
+
+Hello Zeratul!
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /mmc/i2cscan
+ls /mmc/i2cscan
+ls: /mmc/i2cscan: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> chmod +x /mmc/i2cscan
+chmod +x /mmc/i2cscan
+chmod: /mmc/i2cscan: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /mmc/i2cscan 0
+/mmc/i2cscan 0
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> /mmc/i2cscan 1
+/mmc/i2cscan 1
+-/bin/sh: /mmc/i2cscan: not found
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 

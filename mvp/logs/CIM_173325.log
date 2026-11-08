@@ -1,0 +1,14 @@
+>>> 
+
+>>> ls /sys/bus/i2c/devices/0-0037/ 2>&1
+���bus/i�es/0-00�j
+
+>>> cat /sys/bus/i2c/devices/0-0037/name 2>&1
+�����u��ie{/0K_���&��
+>>> ls /dev/media* 2>&1; ls /sys/class/media/ 2>&1
+?_YV+� 2��/sys?dia/ 2�
+>>> ls /sys/class/dma/ 2>&1
+?class/�&1
+
+>>> dmesg | /bin/busybox grep -iE 'tp9950|sensor|cim|camera|0-0037' 2>&1; echo CIM_DONE
+z��n��;�������������caoe~y|���2�������E=9��

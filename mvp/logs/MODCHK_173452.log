@@ -1,0 +1,13 @@
+>>> 
+
+>>> ls /mmc/sensor* 2>&1; echo FILE_CHK
+������� 2�ho FILE�
+>>> cat /proc/modules 2>&1; echo MOD_CHK
+���m��ul�?ecoo?��H�
+>>> /bin/busybox insmod /mmc/sensor_tp9950_t23.ko 2>&1; echo INSMOD_CHK
+����b����zmmc/s��950_t��2��*���}!�5�
+>>> cat /proc/modules | /bin/busybox grep sensor 2>&1; echo GREP_CHK
+�{�modul���/bus���se�>2������X_{HK�
+
+>>> /bin/busybox i2cdetect -y 0 2>&1; echo I2C_CHK
+ybox i�s�j��0 2>� I2C_C�

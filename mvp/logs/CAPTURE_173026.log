@@ -1,0 +1,30 @@
+>>> 
+
+
+Hello Zeratul!
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /dev/mmcblk* 2>&1; ls /sys/bus/i2c/devices/ 2>&1
+ls /dev/mmcblk* 2>&1; ls /sys/bus/i2c/devices/ 2>&1
+[1;35m/dev/mmcblk0[0m    [1;35m/dev/mmcblk0p1[0m
+[1;36mi2c-0[0m  [1;36mi2c-1[0m
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> ls /dev/video* 2>&1; ls /sys/class/video4linux/ 2>&1
+ls /dev/video* 2>&1; ls /sys/class/video4linux/ 2>&1
+ls: /dev/video*: No such file or directory
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> which ffmpeg 2>/dev/null; ls /mmc/sample* 2>/dev/null; ls /system/bin/sample* 2>/dev/null; ls /usr/bin/sample* 2>/dev/null; echo TOOLS
+which ffmpeg 2>/dev/null; ls /mmc/sample* 2>/dev/null; ls /sys
+tem/bin/sample* 2>/dev/null; ls /usr/bin/sample* 2>/dev/null; echo TOOLS
+TOOLS
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
+>>> dmesg | /bin/busybox grep -iE 'tp9950|sensor|cim|isp|video' 2>&1 | /bin/busybox tail -20; echo DMSG
+dmesg | /bin/busybox grep -iE 'tp9950|sensor|cim|isp|video' 2>
+&1 | /bin/busybox tail -20; echo DMSG
+tail: applet not found
+DMSG
+[root@Zeratul:~]# 
+[root@Zeratul:~]# 
