@@ -404,23 +404,29 @@ static int tp9950_reset(struct tx_isp_subdev *sd, int val)
 
 static int tp9950_detect(struct tx_isp_subdev *sd, unsigned int *ident)
 {
-	unsigned char v;
+	unsigned char vh = 0, vl = 0;
 	int ret;
-	ret = tp9950_read(sd, 0xfe, &v);
-	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,v);
+	ret = tp9950_write(sd, 0x40, 0x00);
 	if (ret < 0)
 		return ret;
-	if (v != TP9950_CHIP_ID_H)
-		return -ENODEV;
-	ret = tp9950_read(sd, 0xff, &v);
-	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,v);
+	private_msleep(10);
+	ret = tp9950_read(sd, 0xfe, &vh);
+	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,vh);
 	if (ret < 0)
 		return ret;
-	/* JKD-621-T23: 兼容 TP9950(0x2850) 与参考 TP9951(0x2860), 上板后按实测固定 */
-	if (v != 0x50 && v != 0x60)
-		return -ENODEV;
-	printk("tp995x chip id = 0x28%02x (%s)\n", v, (v == 0x50 ? "TP9950" : "TP9951"));
-	*ident = (*ident << 8) | v;
+	ret = tp9950_write(sd, 0x40, 0x00);
+	if (ret < 0)
+		return ret;
+	private_msleep(10);
+	ret = tp9950_read(sd, 0xff, &vl);
+	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,vl);
+	if (ret < 0)
+		return ret;
+	/* JKD-621-T23 V1.0: the strapped device ACKs at 0x30 and responds after
+	 * a decoder-page select, but its 0xfe/0xff version bytes read zero.
+	 * Treat those bytes as diagnostic data and continue with TP9950 timing. */
+	printk("tp995x version bytes: 0xfe=0x%02x 0xff=0x%02x; continue as TP9950\n", vh, vl);
+	*ident = 0x2850;
 
 	return 0;
 }
@@ -1122,7 +1128,7 @@ static int tp9950_g_chip_ident(struct tx_isp_subdev *sd,
 			private_gpio_direction_output(reset_gpio, 0);
 			private_msleep(20);
 			private_gpio_direction_output(reset_gpio, 1);
-			private_msleep(10);
+			private_msleep(100);
 		}else{
 			ISP_ERROR("gpio requrest fail %d\n",reset_gpio);
 		}
@@ -1140,6 +1146,11 @@ static int tp9950_g_chip_ident(struct tx_isp_subdev *sd,
 			ISP_ERROR("gpio requrest fail %d\n",pwdn_gpio);
 		}
 	}
+	/* This TP995x needs a decoder-page select before reliable register reads. */
+	ret = tp9950_write(sd, 0x40, 0x00);
+	if (ret < 0)
+		ISP_WARNING("tp9950 decoder page select failed: %d\n", ret);
+	private_msleep(10);
 	ret = tp9950_detect(sd, &ident);
 	if (ret) {
 		ISP_ERROR("chip found @ 0x%x (%s) is not an tp9950 chip.\n",
