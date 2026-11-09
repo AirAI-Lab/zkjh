@@ -406,22 +406,21 @@ static int tp9950_detect(struct tx_isp_subdev *sd, unsigned int *ident)
 {
 	unsigned char vh = 0, vl = 0;
 	int ret;
+	/* JKD-621-T23: during early ISP bring-up this decoder can NACK even after
+	 * a page select.  Version registers are diagnostic-only on this board;
+	 * never block media/Video registration on them. */
 	ret = tp9950_write(sd, 0x40, 0x00);
 	if (ret < 0)
-		return ret;
+		ISP_WARNING("decoder page select fe failed: %d\n", ret);
 	private_msleep(10);
 	ret = tp9950_read(sd, 0xfe, &vh);
 	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,vh);
-	if (ret < 0)
-		return ret;
 	ret = tp9950_write(sd, 0x40, 0x00);
 	if (ret < 0)
-		return ret;
+		ISP_WARNING("decoder page select ff failed: %d\n", ret);
 	private_msleep(10);
 	ret = tp9950_read(sd, 0xff, &vl);
 	ISP_WARNING("-----%s: %d ret = %d, v = 0x%02x\n", __func__, __LINE__, ret,vl);
-	if (ret < 0)
-		return ret;
 	/* JKD-621-T23 V1.0: the strapped device ACKs at 0x30 and responds after
 	 * a decoder-page select, but its 0xfe/0xff version bytes read zero.
 	 * Treat those bytes as diagnostic data and continue with TP9950 timing. */
