@@ -1,0 +1,10 @@
+CROSS_COMPILE ?= mips-linux-gnu-
+KDIR ?= /home/wennu/zkjh/Software/os/kernel
+
+obj-m := isp_reprobe.o
+
+all:
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
+
+clean:
+	$(MAKE) -C $(KDIR) M=$(PWD) clean

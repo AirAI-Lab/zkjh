@@ -10,6 +10,7 @@
 | `rootfs-ask.cpio` | 最小交互 rootfs，原 cpio，严禁 WSL 解包重打包 | 已验证 |
 | `i2cscan` | MIPS I2C 总线扫描工具 | 已实测 `0x30` ACK |
 | `i2creg` | MIPS I2C 寄存器读写工具 | 待拷贝到 TF 后读 ID/制式 |
+| `isp_reprobe.ko` | 运行时 NOP 版本读失败分支，并通过 `/proc/isp_reprobe` 手工调用 `tx_isp_init` | A/B 隔离用 |
 | `tag-tp9950-debug.bin` | TP9950 TAG 数据，ISP 阶段使用 | 保留 |
 
 当前内核 SHA256：
