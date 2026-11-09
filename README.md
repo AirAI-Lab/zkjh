@@ -42,8 +42,8 @@ D:\github\zkjh\
 - ✅ T23ZN 缺 SSI 的时钟问题已系统性防御，临时插桩已清理
 - ✅ **原理图链路勘误：TP9950→T23 为 MIPI CSI-2 2-lane，不是 DVP**
 - ✅ 新内核已修复 I2C0 PA12/PA13 显式初始化、禁用冲突 I2C1、VFAT 内置；TF 已更新
-- ⏳ 待上电复核：`i2c0 register ok` + `mount /dev/mmcblk0p1` + TP9950 `0x44` ACK
-- ⏳ ACK 后：恢复 ISP 三开关、MIPI 抓帧、通道轮询、MVP 低功耗闭环
+- ✅ 已上电复核：`i2c0 register ok`、VFAT 自动挂载、TP9950 `0x30` ACK
+- ⏳ 下一步：用 `i2creg` 读芯片 ID/制式寄存器，再恢复 ISP 三开关、MIPI 抓帧、通道轮询、MVP 低功耗闭环
 - ⏳ 待开发：HC32 固件、T23 应用、4G 拨号、功耗调优
 
 ## 4. 协作约定

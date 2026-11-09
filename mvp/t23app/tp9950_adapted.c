@@ -168,7 +168,7 @@ struct tx_isp_sensor_attribute tp9950_attr={
 	.cbus_type = TX_SENSOR_CONTROL_INTERFACE_I2C,
 	.cbus_mask = V4L2_SBUS_MASK_SAMPLE_8BITS | V4L2_SBUS_MASK_ADDR_8BITS,
 	/* i2c */
-	.cbus_device = 0x44,
+	.cbus_device = 0x30, /* JKD-621-T23 board measured 7-bit address */
 	/* mipi */
 	.dbus_type = TX_SENSOR_DATA_INTERFACE_MIPI,
     .mipi = {
@@ -1592,7 +1592,7 @@ char * get_sensor_name(void)
 
 int get_sensor_i2c_addr(void)
 {
-	return 0x44;   /* TP9950/TP9951 Techpoint 默认 7bit 地址, 上板用 i2cdetect 复核 */
+	return 0x30;   /* JKD-621-T23 board measured 7-bit address */
 }
 
 int get_sensor_width(void)

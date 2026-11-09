@@ -8,8 +8,9 @@
 |---|---|---|
 | `uImage-mmc-lzma.bin` | T23ZN 测试内核：I2C0=PA12/13、I2C1 禁用、VFAT 内置、时钟防御收敛 | 待上电复核 |
 | `rootfs-ask.cpio` | 最小交互 rootfs，原 cpio，严禁 WSL 解包重打包 | 已验证 |
-| `sensor_tp9950_t23.ko` | TP9950 MIPI 驱动模块 | 已 insmod，待 I2C ACK |
-| `i2cscan` | MIPS I2C 总线扫描工具 | 待 `0x44` ACK |
+| `sensor_tp9950_t23.ko` | TP9950 MIPI 驱动模块，I2C 地址已按实测改为 `0x30` | 待 ISP 阶段加载 |
+| `i2cscan` | MIPS I2C 总线扫描工具 | 已实测 `0x30` ACK |
+| `i2creg` | MIPS I2C 寄存器读写工具 | 待拷贝到 TF 后读 ID/制式 |
 | `tag-tp9950-debug.bin` | TP9950 TAG 数据，ISP 阶段使用 | 保留 |
 
 当前内核 SHA256：
@@ -45,7 +46,7 @@ ls /mmc
 
 ```text
 i2c i2c-0: i2c0 register ok.
-0x44 ACK
+0x30 ACK
 ```
 
 详细排障见 `../docs/06_T23ZN时钟与TP9950链路修复.md`。
