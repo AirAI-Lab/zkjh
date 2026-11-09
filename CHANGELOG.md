@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.5.0] - 2026-11-09
+### Changed
+- 依据最新原理图修正 TP9950 → T23 链路：实际为 MIPI CSI-2 2-lane，不是 DVP。
+- I2C0 改为 PA12/PA13 显式复用，禁用依赖 U-Boot 预初始化的 `I2C0_BOOT_DEFAULT`。
+- 禁用 I2C1 PA16/PA17，避免抢占 T23 MIPI/DVP 共享复用域。
+- VFAT/FAT 从 module 改为内置，解决最小 rootfs 无法挂载 TF FAT 分区问题。
+- T23ZN 时钟防御收敛：保留 SSI 拦截/SSI0 skip/EXT1 reparent/busy 超时，移除全部临时插桩。
+
+### Added
+- `mvp/docs/06_T23ZN时钟与TP9950链路修复.md`
+- `mvp/patches/0001-t23zn-jkd621-clk-i2c-vfat.patch`
+- `mvp/scripts/clean_clock_debug.py`、`generate_t23_patch.sh`
+
+### Fixed
+- 修正硬编码 initrd 长度，当前 `rootfs-ask.cpio` 为 4,799,488 字节（0x493c00）。
+- 明确 TP9950 I2C 7bit 地址为 `0x44`。
+
 ## [0.4.0] - 2026-11-08
 ### Added
 - TP9950 摄像头链路验证通过（I2C总线 + sensor insmod + video capture v2 + DMA + VPU）
@@ -46,3 +63,4 @@
 ### Fixed
 - quiet 参数根因定位
 - TF 卡兼容性确认（仅 29.7GB 原卡可用）
+

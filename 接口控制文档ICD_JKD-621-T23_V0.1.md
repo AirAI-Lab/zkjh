@@ -1,6 +1,8 @@
-# JKD-621-T23 接口控制文档（ICD）草案 V0.1
-日期：2026-09-15
+# JKD-621-T23 接口控制文档（ICD）草案 V0.1（2026-11-09 修订）
+日期：2026-09-15；修订：2026-11-09
 范围：MVP 演示所需的三条关键链路协议 + 通道/供电控制约定。所有字段以最终评审为准。
+
+> 2026-11-09 修订：TP9950 到 T23 的视频链路以最新原理图和 `tp9950.c` 双重实证，为 **MIPI CSI-2 2-lane YUV422**；旧版 “DVP 8bit + PCLK/HS/VS” 表述作废。
 
 ---
 
@@ -8,8 +10,8 @@
 
 | 接口/器件 | 作用 | 关键信号（原理图实证） | 软件归属 |
 |---|---|---|---|
-| J3(通道C)/J2(通道D)/J12(通道A)/J13(通道B) | 4 路 AHD 摄像头模组 | 各自经 75Ω+CP0080 耦合+ESD → TP9950 VIN1~VIN4（4 选 1 模拟开关） | T23 经 I2C 选通道 |
-| TP9950(U5) | AHD→DVP 解码 | DVP_D0~D7 + PCLK(PA14) + HS(PA16) + VS(PA17)；I2C=SMB0(PA12/13)；RESET=PA18；27MHz 晶振 | T23 |
+| J3(通道C)/J2(通道D)/J12(通道A)/J13(通道B) | 4 路 AHD 摄像头模组 | 各自经匹配/保护电路 → TP9950 VIN1~VIN4；TP9950 内部单解码内核 4 选 1，非四路并发 | T23 经 I2C0 选通道 |
+| TP9950(U5) | AHD 解码 + MIPI CSI-2 输出 | CLK±/D0±/D1± → T23 MIPI CSI-2 2-lane；I2C0=SCL(PA13)/SDA(PA12)，7bit地址0x44；RESET=PA18；27MHz 本地晶振 | T23 |
 | ML307R-DL(U1) | 中移 Cat.1 4G | 数据=USB(USB_DP/DM↔T23 USB0PP/PN)；AT=T23 UART2(PB17/18+PB25/26)；PWRKEY(Q3)/RESET(Q4, 4G_RESET)；专用 +4.2V 供电轨（自 5V 独立降压）；ANT1 天线；SIM=SMN-303 | T23 |
 | J6 | 燃气设备接口 | 位于 T23 UART0(O_TXD/O_RXD 经 Q9/Q10) 与 HC32 UART 区域（PC10/PC11 TXD/RXD 在邻近 J5）——**具体引脚映射需原理图最终确认** | HC32 聚合（推荐） |
 | HC32L136K8TA(U7) | 低功耗主控（常电域） | 32.768K RTC、PWR 控主电、UART0↔T23(PB19/PB22)、SWD(TP5/J17)、HT7333 供电 | 常驻固件 |

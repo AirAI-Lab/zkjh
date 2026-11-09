@@ -1,0 +1,266 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: zkjh team <dev@example.com>
+Date: 2026-11-09 15:24:00 +0800
+Subject: [PATCH] T23ZN clock hardening and JKD-621 I2C/TF bring-up
+
+- guard the absent T23ZN SSI CGU on rate/parent/init paths
+- skip SSI0 gate and reparent it to EXT1
+- bound CGU busy waits and remove temporary boot probes
+- select I2C0 PA12/PA13, disable conflicting I2C1 PA16/PA17
+- build VFAT into the kernel for the minimal rootfs
+- synchronize the rescue initrd size
+---
+--- a/arch/mips/configs/zeratul_SOC_T23_NOR_camera_IIC_V1_defconfig
++++ b/arch/mips/configs/zeratul_SOC_T23_NOR_camera_IIC_V1_defconfig
+@@ -1013,15 +1013,14 @@
+ # CONFIG_I2C_DEBUG_INFO is not set
+ # CONFIG_SOFT_I2C0_GPIO_V12_JZ is not set
+ CONFIG_I2C0_V12_JZ=y
+-# CONFIG_I2C0_PA12_PA13 is not set
+-CONFIG_I2C0_BOOT_DEFAULT=y
++CONFIG_I2C0_PA12_PA13=y
++# CONFIG_I2C0_BOOT_DEFAULT is not set
+ # CONFIG_I2C0_NON_RESTART_MODE is not set
+ CONFIG_I2C0_SPEED=100
+ # CONFIG_SOFT_I2C1_GPIO_V12_JZ is not set
+-CONFIG_I2C1_V12_JZ=y
++# CONFIG_I2C1_V12_JZ is not set
+ # CONFIG_I2C1_PB25_PB26 is not set
+-CONFIG_I2C1_PA16_PA17=y
+-CONFIG_I2C1_SPEED=100
++# CONFIG_I2C1_PA16_PA17 is not set
+ # CONFIG_I2C1_NON_RESTART_MODE is not set
+ # CONFIG_SOFT_I2C2_GPIO_V12_JZ is not set
+ # CONFIG_I2C2_V12_JZ is not set
+@@ -1252,8 +1251,8 @@
+ #
+ # CONFIG_MEDIA_USB_SUPPORT is not set
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+-CONFIG_VIDEO_TX_ISP=y
+-CONFIG_TX_ISP_CORE=y
++# CONFIG_VIDEO_TX_ISP is not set
++# CONFIG_TX_ISP_CORE is not set
+ CONFIG_BUILT_IN_SENSOR_SETTING=y
+ CONFIG_INGENIC_ISP_T23=y
+ # CONFIG_INGENIC_ZRT_DUAL_CAMERA is not set
+@@ -1771,9 +1770,9 @@
+ #
+ # DOS/FAT/NT Filesystems
+ #
+-CONFIG_FAT_FS=m
++CONFIG_FAT_FS=y
+ # CONFIG_MSDOS_FS is not set
+-CONFIG_VFAT_FS=m
++CONFIG_VFAT_FS=y
+ CONFIG_FAT_DEFAULT_CODEPAGE=437
+ CONFIG_FAT_DEFAULT_IOCHARSET="iso8859-1"
+ # CONFIG_EXFAT_FS is not set
+@@ -2000,7 +1999,8 @@
+ # CONFIG_TEST_STRING_HELPERS is not set
+ # CONFIG_TEST_KSTRTOX is not set
+ # CONFIG_EARLY_PRINTK is not set
+-# CONFIG_CMDLINE_BOOL is not set
++CONFIG_CMDLINE="console=ttyS1,115200n8 root=/dev/ram0 rw rdinit=/linuxrc"
++CONFIG_CMDLINE_FORCE=y
+ # CONFIG_DEBUG_STACKOVERFLOW is not set
+ # CONFIG_RUNTIME_DEBUG is not set
+ # CONFIG_DEBUG_ZBOOT is not set
+--- a/arch/mips/xburst/core/prom.c
++++ b/arch/mips/xburst/core/prom.c
+@@ -48,6 +48,11 @@
+ extern struct plat_smp_ops jzsoc_smp_ops;
+ void __init prom_init(void)
+ {
++	extern unsigned long initrd_start, initrd_end;
++	/* U-Boot rescue path loads the raw cpio to 0x81600000.  Keep this size
++	 * synchronized with mvp/releases/rootfs-ask.cpio (currently 0x493c00). */
++	initrd_start = 0x81600000UL;
++	initrd_end = initrd_start + 0x493c00UL;
+ 	prom_init_cmdline((int)fw_arg0, (char **)fw_arg1);
+ 
+ 	mips_machtype = MACH_XBURST;
+--- a/arch/mips/xburst/soc-t23/common/clk/clk.c
++++ b/arch/mips/xburst/soc-t23/common/clk/clk.c
+@@ -91,26 +91,27 @@
+ 	int i;
+ 	struct clk *clk_srcs = get_clk_from_id(0);
+ 	int clk_srcs_size = get_clk_sources_size();
++
+ 	for(i = 0; i < clk_srcs_size; i++) {
+ 		clk_srcs[i].CLK_ID = i;
+-		if(clk_srcs[i].flags & CLK_FLG_CPCCR) {
++		/* T23ZN has no SSI CGU. Skip the SSI0 gate so clock-tree init
++		 * cannot reach its absent parent through gate operations. */
++		if(i == CLK_ID_SSI0)
++			continue;
++		if(clk_srcs[i].flags & CLK_FLG_CPCCR)
+ 			init_cpccr_clk(&clk_srcs[i]);
+-		}
+-		if(clk_srcs[i].flags & CLK_FLG_CGU) {
++		if(clk_srcs[i].flags & CLK_FLG_CGU)
+ 			init_cgu_clk(&clk_srcs[i]);
+-		}
+-		if(clk_srcs[i].flags & CLK_FLG_PLL) {
++		if(clk_srcs[i].flags & CLK_FLG_PLL)
+ 			init_ext_pll(&clk_srcs[i]);
+-		}
+-		if(clk_srcs[i].flags & CLK_FLG_NOALLOC) {
++		if(clk_srcs[i].flags & CLK_FLG_NOALLOC)
+ 			init_ext_pll(&clk_srcs[i]);
+-		}
+-		if(clk_srcs[i].flags & CLK_FLG_GATE) {
++		if(clk_srcs[i].flags & CLK_FLG_GATE)
+ 			init_gate_clk(&clk_srcs[i]);
+-		}
+ 		if(clk_srcs[i].flags & CLK_FLG_ENABLE)
+ 			clk_srcs[i].init_state = 1;
+ 	}
++
+ 	for(i = 0; i < clk_srcs_size; i++) {
+ 		if(clk_srcs[i].parent && clk_srcs[i].init_state)
+ 			init_clk_parent(clk_srcs[i].parent);
+@@ -125,6 +126,7 @@
+ 			clk_srcs[CLK_ID_H2CLK].rate/1000/1000,
+ 			clk_srcs[CLK_ID_PCLK].rate/1000/1000);
+ }
++
+ struct clk *clk_get(struct device *dev, const char *id)
+ {
+ 	int i;
+--- a/arch/mips/xburst/soc-t23/common/clk/clk_cgu.c
++++ b/arch/mips/xburst/soc-t23/common/clk/clk_cgu.c
+@@ -9,6 +9,26 @@
+ #include <soc/extal.h>
+ #include <soc/ddr.h>
+ #include "clk.h"
++
++/* T23ZN-DEFENSE: SSI CGU is absent on this silicon. Guard every rate,
++ * parent and init path so no code path can touch CPM_SSICDR. */
++#define CGU_BUSY_TIMEOUT 10000000
++static int t23zn_absent_cgu(int no)
++{
++	return no == CGU_SSI;
++}
++
++static void cgu_wait_busy(unsigned int off, unsigned int busy)
++{
++	int timeout = CGU_BUSY_TIMEOUT;
++	while(cpm_test_bit(busy, off)) {
++		if(--timeout <= 0) {
++			printk("CGU busy timeout: off=0x%08x busy=%u\n", off, busy);
++			break;
++		}
++	}
++}
++
+ static DEFINE_SPINLOCK(cpm_cgu_lock);
+ struct clk_selectors {
+ 	unsigned int route[4];
+@@ -114,6 +134,7 @@
+ 	unsigned long x;
+ 	unsigned long flags;
+ 	int no = CLK_CGU_NO(clk->flags);
++	if(t23zn_absent_cgu(no)) return 0; /*T23ZN-DEFENSE*/
+ 
+ 	if (!(strcmp(clk->name, "cgu_i2s_spk")) || !(strcmp(clk->name, "cgu_i2s_mic"))) {
+ 		unsigned int reg_val = 0;
+@@ -178,9 +199,7 @@
+ 			unsigned int x = cgu_clks[no].cache;
+ 			x = (x & ~(0x1 << stop)) | (0x1 << ce);
+ 			cpm_outl(x,cgu_clks[no].off);
+-			while(cpm_test_bit(busy,cgu_clks[no].off)) {
+-				printk("wait stable.[%d][%s]\n",__LINE__,clk->name);
+-			}
++			cgu_wait_busy(cgu_clks[no].off, busy);
+ 			cpm_clear_bit(ce, cgu_clks[no].off);
+ 			x &= (1 << cgu_clks[no].div) - 1;
+ 			x = (x + 1) * cgu_clks[no].coe;
+@@ -284,8 +303,7 @@
+ 	} else if((mask & reg_val) != i) {
+ 		x = (x & ~(0x1 << stop)) | (0x1 << ce);
+ 		cpm_outl(x, cgu_clks[no].off);
+-		while(cpm_test_bit(busy,cgu_clks[no].off))
+-			printk("wait stable.[%d][%s]\n",__LINE__,clk->name);
++		cgu_wait_busy(cgu_clks[no].off, busy);
+ 		x &= ~(1 << ce);
+ 		cpm_outl(x, cgu_clks[no].off);
+ 		cgu_clks[no].cache = 0;
+@@ -303,6 +321,7 @@
+ 	unsigned int no,cgu,idx,pidx;
+ 
+ 	no = CLK_CGU_NO(clk->flags);
++	if(t23zn_absent_cgu(no)) return NULL; /*T23ZN-DEFENSE*/
+ 	if(!(strcmp(clk->name, "cgu_i2s_mic"))){
+ 		/* the operation uses for t31, because that the bits[30~31] of 0x10000084 is readonly */
+ 		cgu = *(volatile unsigned int*)(0xb0000070); // the register is i2s speaker pll.
+@@ -364,8 +383,7 @@
+ 		cgu_clks[no].cache = cgu;
+ 	else if((mask & reg_val) != i){
+ 		cpm_outl(cgu, cgu_clks[no].off);
+-		while(cpm_test_bit(busy,cgu_clks[no].off))
+-			printk("wait stable.[%d][%s]\n",__LINE__,clk->name);
++		cgu_wait_busy(cgu_clks[no].off, busy);
+ 		cgu &= ~(1 << ce);
+ 		cpm_outl(cgu, cgu_clks[no].off);
+ 		cgu_clks[no].cache = 0;
+@@ -458,11 +476,7 @@
+ 	cpm_outl(ddr_cgu,CPM_DDRCDR);
+ 	fail = 0;
+ 	TCSM_PCHAR('3');
+-	while(cpm_inl(CPM_DDRCDR) & 1 << 28) {
+-		serial_put_hex(cpm_inl(CPM_DDRCDR));
+-		TCSM_PCHAR('\r');
+-		TCSM_PCHAR('\n');
+-	}
++	cgu_wait_busy(CPM_DDRCDR, 28);
+ 	TCSM_PCHAR('4');
+ 	cpm_clear_bit(25,CPM_DDRCDR);
+ 	REG32(0xb3012068) = 0xf0000100;
+@@ -490,9 +504,10 @@
+ {
+ 	int no;
+ 	int id;
++	if(t23zn_absent_cgu(CLK_CGU_NO(clk->flags)))
++		return; /* T23ZN-DEFENSE */
+ 	//printk("REG32(0xb3012088) = %x\n",REG32(0xb3012088));
+ 
+-
+ 	if (clk->flags & CLK_FLG_PARENT) {
+ 		id = CLK_PARENT(clk->flags);
+ 		clk->parent = get_clk_from_id(id);
+@@ -500,8 +515,11 @@
+ 		clk->parent = cgu_get_parent(clk);
+ 	}
+ 	no = CLK_CGU_NO(clk->flags);
++
+ 	cgu_clks[no].cache = 0;
++
+ 	clk->rate = cgu_get_rate(clk);
++
+ 	if(cgu_is_enabled(clk)) {
+ 		clk->flags |= CLK_FLG_ENABLE;
+ 	}
+--- a/arch/mips/xburst/soc-t23/common/clk/clk_cpccr.c
++++ b/arch/mips/xburst/soc-t23/common/clk/clk_cpccr.c
+@@ -424,9 +424,9 @@
+ static unsigned long cpccr_get_rate(struct clk *clk)
+ {
+ 	int sel;
++	int v;
+ 	unsigned long cpccr = cpm_inl(CPM_CPCCR);
+ 	unsigned int rate;
+-	int v;
+ 	if(CLK_CPCCR_NO(clk->flags) == SCLKA)
+ 	{
+ 		int clka_sel[4] = {0,CLK_ID_EXT1,CLK_ID_APLL,0};
+--- a/arch/mips/xburst/soc-t23/common/clk/clk_sources.c
++++ b/arch/mips/xburst/soc-t23/common/clk/clk_sources.c
+@@ -57,7 +57,7 @@
+ 	DEF_CLK(OTG,   		GATE(3) | PARENT(H2CLK)),
+ 	DEF_CLK(MSC0,  		GATE(4) | PARENT(H2CLK)),
+ 	DEF_CLK(MSC1,  		GATE(5) | PARENT(H2CLK)),
+-	DEF_CLK(SSI0,       GATE(6) | PARENT(CGU_SSI)),
++	DEF_CLK(SSI0,       GATE(6) | PARENT(EXT1)), /*T23ZN: CGU_SSI absent; reparent to safe EXT1 to protect ops-enable path too*/
+ 
+ 	DEF_CLK(I2C0,  		GATE(7) | PARENT(PCLK)),
+ 

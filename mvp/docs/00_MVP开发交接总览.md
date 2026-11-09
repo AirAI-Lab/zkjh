@@ -14,7 +14,7 @@
 
 ## 2. 系统架构（一句话）
 HC32L136（常电域：RTC/ADXL345震动倾角位移/AH3716磁感应/燃气J6监听/拨码）
-→ 唤醒时 PWR 上电 T23（UART0 通告原因）→ T23 快起 → I2C 配 TP9950 → AHD→DVP 抓 JPEG
+→ 唤醒时 PWR 上电 T23（UART0 通告原因）→ T23 快起 → I2C0(PA12/13) 配 TP9950 → AHD 解码后经 MIPI CSI-2 2-lane 抓 JPEG
 → TF 缓存 → USB RNDIS 拨号 ML307R → 上传 → UART0 命令 HC32 断电回睡（MCU_WDT 贯穿）。
 
 ## 3. 目录结构
@@ -27,17 +27,16 @@ mvp/
 │   ├── zk_codec.py      协议 Python 版 + 自测（python zk_codec.py）
 │   ├── gas_sim.py       燃气模拟器（--selftest / --port COMx）
 │   └── mock_server.py   平台模拟（POST /api/event, /api/image/<devid>/<name>）
-├── scripts/
-│   ├── wsl_setup_env.sh 环境一键搭建（已验证）
-│   └── wsl_run_build.sh 一键编译（已验证，产出完整固件）
+├── scripts/           # 串口监控、I2C扫描、时钟清理、补丁生成等工具
 ├── hc32fw/          # HC32L136 固件骨架（待开发，Keil/HC32 工具链）
 ├── t23app/          # T23 应用骨架（待开发，交叉编译进 rootfs/system）
 ├── tests/           # 测试
-├── releases/        # 固件存档（ZRT_SOC_T23ZN_TP9950_DIRECT_FW.bin）
+├── releases/        # 当前最小验证内核/rootfs/TP9950模块/I2C工具
+├── patches/         # 相对官方 SDK 的可审查补丁
 └── docs/            # 本文档 + 环境指南 + 完整构建流程 + 板级调试指南
 ```
 
-## 4. 当前进度（2026-09-16）
+## 4. 当前进度（2026-11-09）
 | 项 | 状态 |
 |---|---|
 | WSL2 Ubuntu 24.04 编译环境 | ✅ 搭建完成并验证 |
@@ -48,11 +47,15 @@ mvp/
 | Mock 平台服务器 | ✅ 事件/图片上传/统计 自测通过 |
 | TP9950 驱动适配 | ✅ 已完成代码集成并编译进固件 ZRT_SOC_T23ZN_TP9950_DIRECT_FW.bin（上板验证=W2） |
 | HC32 固件 | ⏳ W2-W3（唤醒调度/传感器/燃气监听/UART 协议） |
-| 板子实机联调 | ⏳ 待硬件接入（串口线+USB网卡+SIM） |
+| Root Shell / SD 启动链 | ✅ 2026-11-08 已打通 |
+| T23ZN SSI 时钟防御 | ✅ 系统化收敛，临时插桩已移除 |
+| I2C0 PA12/13 + VFAT 内置修复 | ✅ 已编译并更新 TF，待上电复核 |
+| TP9950 I2C ACK / MIPI 出图 | ⏳ 下一步先验 `0x44` ACK，再恢复 ISP 三开关 |
+| 板子实机联调 | 🔄 进行中（串口+TF+摄像头已接） |
 
 ## 5. 六周里程碑（2 人：A=BSP/T23，B=HC32/测试）
 - W1 环境与烧录：两板烧固件、串口进系统、USB 网卡 telnet、carrier-server 出图（gc2053 EVK 可先验）
-- W2 视频链路：TP9950 驱动移植（YUV DVP sensor 模板）→ 单通道出图 → 通道切换
+- W2 视频链路：TP9950 I2C ACK → MIPI ISP 出图 → 单通道抓拍 → 通道切换
 - W3 低功耗框架：HC32 固件 v0.1（RTC 唤醒+UART 协议+PWR 控制）+ T23 侧 wake/sleep 流程 + MCU_WDT
 - W4 缓存与 4G：TF 队列/断电恢复 + ML307R RNDIS 拨号 + mock 平台上传（首图先行）
 - W5 传感器与燃气：ADXL345/AH3716 判级 + gas_sim 联动端到端演示 + 拨码维护

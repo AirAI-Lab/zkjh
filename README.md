@@ -16,6 +16,7 @@
 | ⑥ | `mvp/docs/03_完整构建与烧录流程.md` | 从零到固件烧录的端到端流程 |
 | ⑦ | mvp/docs/02_板级调试指南.md | 如何进系统（无HDMI）、串口/telnet/看图 |
 | ⑧ | mvp/docs/05_首次上电检查单.md | **板到手第一步**：接线/烧录/出流/通道切换检查单 |
+| ⑨ | mvp/docs/06_T23ZN时钟与TP9950链路修复.md | **最新硬件链路勘误 + I2C0/时钟/TF 修复与验收** |
 
 ## 2. 目录结构
 ```
@@ -36,11 +37,13 @@ D:\github\zkjh\
 └── mvp\                              ← MVP 工作区（代码/脚本/文档/固件）
 ```
 
-## 3. 当前状态（2026-09-22）
-- ✅ 编译环境打通（WSL2 Ubuntu 24.04 + mips-gcc540-uclibc）
-- ✅ **TP9950 驱动已集成并编译进固件**：`mvp/releases/ZRT_SOC_T23ZN_TP9950_DIRECT_FW.bin`
-- ✅ 协议库（HC32↔T23 / 燃气）、模拟器、Mock 平台均可运行（自测通过）
-- ⏳ 待上板：烧录验证、TP9950 出流、通道切换实测、低功耗闭环（板未连 PC，串口监控工具已备好：python mvp/scripts/serial_monitor.py）
+## 3. 当前状态（2026-11-09）
+- ✅ 编译环境、SD 救援启动、U-Boot、内核、Root Shell、TF 识别链路已打通
+- ✅ T23ZN 缺 SSI 的时钟问题已系统性防御，临时插桩已清理
+- ✅ **原理图链路勘误：TP9950→T23 为 MIPI CSI-2 2-lane，不是 DVP**
+- ✅ 新内核已修复 I2C0 PA12/PA13 显式初始化、禁用冲突 I2C1、VFAT 内置；TF 已更新
+- ⏳ 待上电复核：`i2c0 register ok` + `mount /dev/mmcblk0p1` + TP9950 `0x44` ACK
+- ⏳ ACK 后：恢复 ISP 三开关、MIPI 抓帧、通道轮询、MVP 低功耗闭环
 - ⏳ 待开发：HC32 固件、T23 应用、4G 拨号、功耗调优
 
 ## 4. 协作约定
@@ -54,9 +57,10 @@ D:\github\zkjh\
 
 ## 5. 快速开始
 ```powershell
-# 编译固件（首次约 10 分钟）
-wsl -d Ubuntu -- bash /mnt/d/github/zkjh/mvp/scripts/wsl_setup_env.sh
-wsl -d Ubuntu -- bash /mnt/d/github/zkjh/mvp/scripts/wsl_tp9950_patch4.sh   # TP9950 固件
+# 串口监控（当前常用于 COM6；按设备管理器实际口调整）
+python D:\github\zkjh\mvp\scripts\serial_monitor.py --port COM6
+# SDK 内核构建入口（WSL 内执行）
+# cd ~/zkjh/Software && source .env && bash build/build_camera_uImage.sh -j20
 # 协议自测（无需硬件）
 python D:\github\zkjh\mvp\sim\zk_codec.py
 python D:\github\zkjh\mvp\sim\gas_sim.py --selftest

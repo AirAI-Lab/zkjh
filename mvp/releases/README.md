@@ -1,23 +1,52 @@
-# releases/final 五件套说明 (2026-11-08)
+# MVP releases（2026-11-09）
 
-## 当前可跑通组合(上电即root shell)
+> 统一使用本目录，不再使用 `final/` 子目录。
 
-| 文件 | 用途 | 烧录位置 |
+## 当前测试组合
+
+| 文件 | 用途 | 状态 |
 |---|---|---|
-| uImage-moved-lzma.bin | 最终内核(T23ZN防御+skip54+reparent+硬initrd@0x81600000) | TF FAT |
-| rootfs-ask.cpio | 最终rootfs(实体/init+静态dev+askfirst shell) | TF FAT |
-| t23_sdcard_uboot_uart1.bin | SD启动uboot(救生索) | TF raw@17KB(17408) |
-| u-boot-hardlzma-sfcnor-1188.bin | NOR版1188(备用) | NOR@0x0 |
-| tag-tp9950-debug.bin | TAG(NOR启动用) | NOR@0x40000 |
-| uInitrd | mkimage封装ramdisk(备用) | TF FAT |
-| ZRT_FW.bin x2 | 原厂固件(参考) | - |
+| `uImage-mmc-lzma.bin` | T23ZN 测试内核：I2C0=PA12/13、I2C1 禁用、VFAT 内置、时钟防御收敛 | 待上电复核 |
+| `rootfs-ask.cpio` | 最小交互 rootfs，原 cpio，严禁 WSL 解包重打包 | 已验证 |
+| `sensor_tp9950_t23.ko` | TP9950 MIPI 驱动模块 | 已 insmod，待 I2C ACK |
+| `i2cscan` | MIPS I2C 总线扫描工具 | 待 `0x44` ACK |
+| `tag-tp9950-debug.bin` | TP9950 TAG 数据，ISP 阶段使用 | 保留 |
 
-## 一键重建TF卡
-1. raw@17KB: t23_sdcard_uboot_uart1.bin (scripts/raw_rebuild.ps1)
-2. FAT: 拷贝 uImage-moved-lzma.bin + rootfs-ask.cpio
-3. env@0x40400: scripts/envwritePS.ps1 (含CRC32)
+当前内核 SHA256：
 
-## 上电流程
-SD启动 -> autoboot: fatload内核+cpio -> bootm ->
-内核启动 -> initramfs unpack -> busybox init -> rcS ->
-"Please press Enter" -> [root@Zeratul:~]#
+```text
+AF52D6767F083D0304FA5728B717DD8C0D6A7F3B18C1720A9FC55D1634D70119
+```
+
+## TF 卡 FAT 区
+
+保留：
+
+```text
+uImage-mmc-lzma.bin
+rootfs-ask.cpio
+sensor_tp9950_t23.ko
+i2cscan
+tag-tp9950-debug.bin
+```
+
+raw@17KB 的 `t23_sdcard_uboot_uart1.bin` 已在既有卡上保留；不要用普通文件复制方式重建 raw 区。
+
+## 上电验证
+
+```bash
+mkdir -p /mmc
+mount -t vfat /dev/mmcblk0p1 /mmc
+ls /mmc
+/mmc/i2cscan 0
+```
+
+预期日志：
+
+```text
+i2c i2c-0: i2c0 register ok.
+0x44 ACK
+```
+
+详细排障见 `../docs/06_T23ZN时钟与TP9950链路修复.md`。
+
