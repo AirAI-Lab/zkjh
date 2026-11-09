@@ -15,7 +15,7 @@
 当前内核 SHA256：
 
 ```text
-AF52D6767F083D0304FA5728B717DD8C0D6A7F3B18C1720A9FC55D1634D70119
+A1A5BF5C94F54CC6164CFDCDE636CB7ACB7F2397A1CDE2D9BE7C3D9E4A28DAB9
 ```
 
 ## TF 卡 FAT 区
@@ -49,4 +49,6 @@ i2c i2c-0: i2c0 register ok.
 ```
 
 详细排障见 `../docs/06_T23ZN时钟与TP9950链路修复.md`。
+
+> 该文件必须来自 `os/kernel/arch/mips/boot/uImage.lzma`，不能误用 header 为 LZ4 的 `uImage.jzlzma`。
 

@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--port", default="COM6")
     parser.add_argument("--baud", type=int, default=115200)
     parser.add_argument("--timeout", type=float, default=240)
+    parser.add_argument("--boot-command", help="optional U-Boot command to send immediately, e.g. boot")
     args = parser.parse_args()
 
     log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "logs")
@@ -46,6 +47,11 @@ def main():
         print("[auto] %s @ %d-8N1 -> %s" % (args.port, args.baud, log_path))
         log.write("===== I2C bring-up %s =====\n" % datetime.datetime.now().isoformat())
         log.flush()
+        if args.boot_command:
+            print(">>> " + args.boot_command)
+            log.write(">>> %s\n" % args.boot_command)
+            ser.write((args.boot_command + "\n").encode())
+            ser.flush()
         while time.time() - started < args.timeout:
             data = ser.read(4096)
             if not data:
